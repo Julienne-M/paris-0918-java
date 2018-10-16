@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Event } from '../event';
 
 @Component({
   selector: 'app-list-events',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-events.component.css']
 })
 export class ListEventsComponent implements OnInit {
+  public events: Event[] = [
+    new Event('Concert'),
+  ];
 
   constructor() { }
 

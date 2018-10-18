@@ -1,9 +1,9 @@
-navbarNav {
-    display: flex;
-   justify-content: flex-start;
-}
-
-.button {
-    display: flex;
-    justify-content: flex-end;
-}
+#navbarNav {
+    padding: 10px;
+  }
+  
+  @media all and (max-width: 992px) {
+    #navbarNav {
+      display: none;
+    }
+  }

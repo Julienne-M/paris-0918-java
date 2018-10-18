@@ -1,1 +1,9 @@
+navbarNav {
+    display: flex;
+   justify-content: flex-start;
+}
 
+.button {
+    display: flex;
+    justify-content: flex-end;
+}

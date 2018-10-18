@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
   <div class="container-fluid">
     <a href="#" class="navbar-brand">GO OUT, GO WILD !</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +8,7 @@
     <div [ngbCollapse]="isCollapsed" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="#" class="nav-link">Accueil</a>
+          <a routerLink="/home" class="nav-link">Accueil</a>
         </li>
         <li class="nav-item">
           <a routerLink="/events" class="nav-link">Evénements</a>

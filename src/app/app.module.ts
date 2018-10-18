@@ -11,7 +11,8 @@ import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'events', component: ListEventsComponent }
+  { path: 'events', component: ListEventsComponent },
+  { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({

@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { OpenDataParisServices } from './services/OpenDataParisServices';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/events', pathMatch: 'full'},
   { path: 'events', component: ListEventsComponent },
   { path: 'home', component: HomeComponent }
 ];

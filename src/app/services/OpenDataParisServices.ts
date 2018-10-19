@@ -11,11 +11,11 @@ export class OpenDataParisServices {
   
   http : HttpClient;
   data: any;
-  
+
   todaysDate = new Date().toISOString();
   todaysDateAPIForm = this.todaysDate.slice(0, 10);
   urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&refine.date_start=${this.todaysDateAPIForm}`;
-  
+
   getConcerts() {
     this.http.get(`${this.urlBase}&refine.tags=concert`).subscribe((response) => {
       this.data = response;

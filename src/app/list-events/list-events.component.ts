@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../event';
+import { OpenDataParisServices } from '../services/OpenDataParisServices';
+import { HttpClient , HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-list-events',
@@ -69,8 +71,12 @@ export class ListEventsComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     console.log("On est dans ngOnInit" , this.record1.title);
+    let openDataParisServices = new OpenDataParisServices();
+    openDataParisServices.getConcerts();
+    console.log(openDataParisServices.data);
+  //  events = openDataParisServices.data;
+  //  console.log(events)
   }
 
 }

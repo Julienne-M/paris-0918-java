@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +7,9 @@ import { HttpClient } from '@angular/common/http';
 
 export class OpenDataParisServices {
 
-  constructor(private http: HttpClient) { }
-
+  constructor() { }
+  
+  http : HttpClient;
   data: any;
   
   todaysDate = new Date().toISOString();
@@ -19,6 +20,7 @@ export class OpenDataParisServices {
     this.http.get(`${this.urlBase}&refine.tags=concert`).subscribe((response) => {
       this.data = response;
     });
+    console.log("Réponse API ", this.data);
     return this.data;
   }
 

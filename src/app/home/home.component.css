@@ -23,7 +23,7 @@ img {
 .background-img {
   background-image: url('../../assets/images/concert-2.jpg');
   background-color: #cccccc;
-  height: 500px;
+  height: 41em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -7,21 +7,18 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 export class OpenDataParisServices {
 
-  constructor() { }
+  constructor(private http : HttpClient) { } 
   
-  http : HttpClient;
   data: any;
 
   todaysDate = new Date().toISOString();
   todaysDateAPIForm = this.todaysDate.slice(0, 10);
+  
   urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&refine.date_start=${this.todaysDateAPIForm}`;
 
   getConcerts() {
-    this.http.get(`${this.urlBase}&refine.tags=concert`).subscribe((response) => {
-      this.data = response;
-    });
-    console.log("Réponse API ", this.data);
-    return this.data;
+//    return this.http.get(`${this.urlBase}&refine.tags=concert`);
+    return this.http.get(`${this.urlBase}`);
   }
 
   getExpositions() {

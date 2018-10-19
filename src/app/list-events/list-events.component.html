@@ -2,7 +2,6 @@
 
   <button type="button" class="btn btn-success">Sélectionne tes préférences</button>
 </div>
-
 <div class="container">
   <h2>Mardi 16 octobre 2018</h2>
   <h3>Trouve ton évènement</h3>
@@ -10,15 +9,15 @@
 
 <div class="row justify-content-md-center">
     <div class="list-group col-md-2">
-      <a href="#" class="list-group-item list-group-item-action">{{event1.date_start}}<br>{{event1.space_time_info}}</a>
+      <a href="#" class="list-group-item list-group-item-action">{{data.records[0].fields.date_start}}<br>{{data.records[0].fields.timetable}}</a>
     </div>
 
     <div class="list-group col-md-6">
-      <a href="#" class="list-group-item list-group-item-action justify-center">{{event1.title}}</a>
+      <a href="#" class="list-group-item list-group-item-action justify-center">{{ data.records[0].fields.title }}</a>
     </div>
 
     <div class="list-group col-md-2">
-      <a href="#" class="list-group-item list-group-item-action">{{event1.placename}}</a>
+      <a href="#" class="list-group-item list-group-item-action">{{data.records[0].fields.placename}}</a>
     </div>
 </div>
 

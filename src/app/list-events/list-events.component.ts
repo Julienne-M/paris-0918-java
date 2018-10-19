@@ -10,6 +10,7 @@ import { HttpClient , HttpClientModule } from '@angular/common/http';
 })
 
 export class ListEventsComponent implements OnInit {
+  data : any;
   record1 = {
     date_start: '2018-10-16',
     address: '56 rue ducouedic 75016 Paris',
@@ -47,7 +48,7 @@ export class ListEventsComponent implements OnInit {
     pricing_info: 'gratos',
     space_time_info:'00:00',
     title: 'Still alive ?'
-  }  
+  }   
 
   record4 = {
     date_start: '2018-11-05',
@@ -62,21 +63,27 @@ export class ListEventsComponent implements OnInit {
     title: `Aujourd'hui on plonge !`
   }  
 
-  event1 = new Event(this.record1);
+  event : Event[];
+  //event
+  // event[0] = this.record1;
   event2 = new Event(this.record2);
   event3 = new Event(this.record3);
   event4 = new Event(this.record4);
 
-  constructor() {
+  constructor(private api : OpenDataParisServices) {
   }
 
   ngOnInit() {
-    console.log("On est dans ngOnInit" , this.record1.title);
-    let openDataParisServices = new OpenDataParisServices();
-    openDataParisServices.getConcerts();
-    console.log(openDataParisServices.data);
-  //  events = openDataParisServices.data;
-  //  console.log(events)
+    this.api.getConcerts().subscribe((response) => {
+      this.data = response;
+      console.log("Réponse API ", this.data.records);
+      console.log(this.data.records.length);
+      console.log(this.api);
+    for ( let i = 0 ; i < this.data.records.length ; i++) {
+      console.log(this.data.records[i].fields.date_start);
+    }
+    });
+    
   }
 
 }

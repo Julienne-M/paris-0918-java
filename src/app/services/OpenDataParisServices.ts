@@ -7,13 +7,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 export class OpenDataParisServices {
 
-  constructor(private http : HttpClient) { } 
-  
+  constructor(private http: HttpClient) { }
+
   data: any;
 
   todaysDate = new Date().toISOString();
   todaysDateAPIForm = this.todaysDate.slice(0, 10);
-  
+
   urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&refine.date_start=${this.todaysDateAPIForm}`;
 
   getConcerts() {

@@ -23,4 +23,3 @@ describe('ListEventsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-data.records[0].fields

@@ -10,6 +10,8 @@ import { ListEventsComponent } from './list-events/list-events.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { OpenDataParisServices } from './services/OpenDataParisServices';
+import { ParametersComponent } from './parameters/parameters.component';
+import { DetailsEventsComponent } from './details-events/details-events.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/events', pathMatch: 'full'},
@@ -23,7 +25,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     ListEventsComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ParametersComponent,
+    DetailsEventsComponent
   ],
   imports: [
     BrowserModule,

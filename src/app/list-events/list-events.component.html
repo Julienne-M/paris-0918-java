@@ -1,26 +1,26 @@
 <div container>
-  <div class="row justify-content-md-center">
-    <button type="button" class="btn btn-success col-md-4">Sélectionne tes préférences</button>
-    <h2 class="badge badge-secondary col-md-4">Mardi 16 octobre 2018</h2>
-    <h3 class="badge badge-secondary col-md-4">Trouve ton évènement</h3>
+  <div class="row  align-items-center">
+    <h1 class="badge badge-secondary col-sm-3">Mardi 16 octobre 2018</h1>
+    <h1 class="badge badge-secondary col-sm-5">Trouve ton évènement</h1>
+    <button type="button" class="btn btn-success col-sm-4">Sélectionne tes préférences</button>
   </div>
 </div>
-<div class="container-fluid" blue>
+<div class="container-fluid blue">
   <div *ngIf="isLoaded">
     <div *ngFor="let event of data.records">
       <div class="row">
-        <div class="col-md-2 col-sm-3 col-xs-4">
+        <div class="col-12 col-sm-3 col-md-2">
             {{ event.fields.date_start }}
             {{ event.fields.timetable }}
         </div>
-        <div class="col-md-7 col-sm-5 col-xs-3">
+        <div class="col-12 col-sm-5 col-md-7">
             {{ event.fields.title }}  
         </div> 
-        <div class="col-md-3 col-sm-4 col-xs-5">
+        <div class="col-12 col-sm-4 col-md-3">
             {{event.fields.placename}}
         </div>
-       
       </div>
+      <hr>
       <br>
     </div>
   </div>

@@ -9,9 +9,8 @@ import { OpenDataParisServices } from '../services/OpenDataParisServices';
 })
 
 export class ListEventsComponent implements OnInit {
+  isLoaded : boolean = false;
   data : any;
-  event : Event;
-  alias = "data.records"
   
   constructor(private api : OpenDataParisServices) {
   }
@@ -19,14 +18,13 @@ export class ListEventsComponent implements OnInit {
   ngOnInit() {
     this.api.getConcerts().subscribe((response) => {
       this.data = response;
-      console.log("Réponse API ", this.data.records);
-      console.log(this.data.records.length);
-      console.log(this.api);
-      this.dateFilter (this.data.records[1].fields.timetable);
+      // Flag for the ngIf in the HTML
+      this.isLoaded = true;
+      // Fliter for the time of Event
       for (let i = 0; i < this.data.records.length; i++) {
-        //  console.log(this.data.records[i].fields.date_start);
         //  Extraction de l'heure
-        this.data.records[0].fields.timetable = this.data.records[0].fields.timetable.slice(11, 16);
+        // this.dateFilter (this.data.records[i].fields.timetable);
+        this.data.records[i].fields.timetable = this.data.records[i].fields.timetable.slice(11, 16);
       }
     });
     
@@ -35,17 +33,10 @@ export class ListEventsComponent implements OnInit {
   dateFilter (timeTable : string) {
     let dateEvent = "";
     let todaysDate = this.api.todaysDate;
-    console.log(timeTable);
     let tab = timeTable.split(" ").join(";").split(";");
     dateEvent = tab.find((element) => {
       return element <= todaysDate;
     });    
-    console.log(dateEvent);
-    console.log(tab);
-
-
-
-    console.log(todaysDate);
     // return dateEvent;
   }
 }

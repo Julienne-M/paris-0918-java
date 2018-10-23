@@ -25,6 +25,7 @@ export class ListEventsComponent implements OnInit {
         //  Extraction de l'heure
         // this.dateFilter (this.data.records[i].fields.timetable);
         this.data.records[i].fields.timetable = this.data.records[i].fields.timetable.slice(11, 16);
+        console.log(this.data);
       }
     });
     

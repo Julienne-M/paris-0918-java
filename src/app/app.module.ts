@@ -15,8 +15,11 @@ import { DetailsEventsComponent } from './details-events/details-events.componen
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/events', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent },
   { path: 'events', component: ListEventsComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'param', component: ParametersComponent },
+  { path: 'details', component: DetailsEventsComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

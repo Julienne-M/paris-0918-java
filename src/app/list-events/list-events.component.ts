@@ -9,10 +9,10 @@ import { OpenDataParisServices } from '../services/OpenDataParisServices';
 })
 
 export class ListEventsComponent implements OnInit {
-  isLoaded : boolean = false;
-  data : any;
-  
-  constructor(private api : OpenDataParisServices) {
+  isLoaded = false;
+  data: any;
+
+  constructor(private api: OpenDataParisServices) {
   }
 
   ngOnInit() {
@@ -28,16 +28,15 @@ export class ListEventsComponent implements OnInit {
         console.log(this.data);
       }
     });
-    
   }
 
-  dateFilter (timeTable : string) {
-    let dateEvent = "";
-    let todaysDate = this.api.todaysDate;
-    let tab = timeTable.split(" ").join(";").split(";");
+  dateFilter (timeTable: string) {
+    let dateEvent = '';
+    const todaysDate = this.api.todaysDate;
+    const tab = timeTable.split('').join(';').split(';');
     dateEvent = tab.find((element) => {
       return element <= todaysDate;
-    });    
+    });
     // return dateEvent;
   }
 }

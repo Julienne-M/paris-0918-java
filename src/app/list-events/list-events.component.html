@@ -1,10 +1,22 @@
 <div container>
-  <div class="row  align-items-center">
-    <h1 class="badge badge-secondary col-sm-3">Mardi 16 octobre 2018</h1>
-    <h1 class="badge badge-secondary col-sm-5">Trouve ton évènement</h1>
-    <button type="button" class="btn btn-success col-sm-4">Sélectionne tes préférences</button>
+  <!--<div class="container-fluid">
+    <div class="row  align-items-center">
+      <h1 class="badge badge-secondary col-sm-3">Mardi 16 octobre 2018</h1>
+      <h1 class="badge badge-secondary col-sm-5">Trouve ton évènement</h1>
+      <button type="button" class="btn btn-success col-sm-4">Sélectionne tes préférences</button>
+    </div>
+</div>-->
+<div class="row justify-content-md-center">
+    <div class="container">
+        <h2>{{ api.todaysDate.slice(0, 10) }}</h2>
+        <h3> Trouve ton évènement</h3>
+    </div>
+    <button class="btn btn-success col-lg-4">
+      Sélectionne tes préférences
+    </button>
   </div>
-</div>
+<br>
+
 <div class="container-fluid blue">
   <div *ngIf="isLoaded">
     <div *ngFor="let event of data.records">
@@ -14,8 +26,8 @@
             {{ event.fields.timetable }}
         </div>
         <div class="col-12 col-sm-5 col-md-7">
-            {{ event.fields.title }}  
-        </div> 
+            {{ event.fields.title }}
+        </div>
         <div class="col-12 col-sm-4 col-md-3">
             {{event.fields.placename}}
         </div>

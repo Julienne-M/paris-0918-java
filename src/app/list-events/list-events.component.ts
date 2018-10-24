@@ -34,6 +34,7 @@ export class ListEventsComponent implements OnInit {
   dateFilter (timeTable: string) {
     let dateEvent = '';
     const todaysDate = this.api.todaysDate;
+
     const tab = timeTable.split(' ').join(';').split(';');
     dateEvent = tab.find((element) => {
       return element <= todaysDate;

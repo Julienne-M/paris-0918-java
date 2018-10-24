@@ -28,12 +28,21 @@ export class ListEventsComponent implements OnInit {
         console.log(this.data);
       }
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> d8a88fb0199f654c47ae616c972cac330a74541f
   }
 
   dateFilter (timeTable: string) {
     let dateEvent = '';
     const todaysDate = this.api.todaysDate;
+<<<<<<< HEAD
     const tab = timeTable.split('').join(';').split(';');
+=======
+
+    const tab = timeTable.split(' ').join(';').split(';');
+>>>>>>> d8a88fb0199f654c47ae616c972cac330a74541f
     dateEvent = tab.find((element) => {
       return element <= todaysDate;
     });

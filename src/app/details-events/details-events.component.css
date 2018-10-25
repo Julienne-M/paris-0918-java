@@ -1,21 +1,13 @@
-.container {
+.container-fluid {
     box-sizing: border-box;
     font-size: 16px;
     justify-content: center;
     text-align: center;
-    position: center;
-    width: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
     color: black;
-    /* overflow: hidden; */
-    top: 7px;
-    height: fit-content;
-    /* padding: 15px;
-    margin-left: 15px;
-    margin-right: 50%;
-    margin-top: 7px; */
-    border-radius: 20px;
-    opacity: 0.8;
+    overflow: hidden;
+    border-radius: 0;
+    opacity: 0.7;
     background-color: #E6E6FA;
 }
 
@@ -28,49 +20,6 @@
     height: fit-content;
 }
 
-/* #description {
-    position: absolute;
-    display: initial;
-    box-sizing: content-box;
-    top: 8%;
-    left: 15px;
-    justify-content: initial;
-    text-align: center;
-    max-width: 45%;
-    padding-left:3.0em;
-    padding-right: unset;
-    border-radius: 20px;
-    opacity: 0.8;
-    background-color: #E6E6FA;
-    filter : alpha(opacity=80);
-} */
-
-/*.container h2 {
-    margin: 0;
-    text-align: justify;
-    justify-content: space-around;
-    font-weight: bold;
-    color: black;
-    /* border-radius: 20px;
-    opacity: 0.8;
-    background-color: #E6E6FA; */
-    /* filter : alpha(opacity=80); 
-} */
-
-
-/* .container span {
-    margin: 0;
-    text-align: center;
-    justify-content: center;
-    font-weight: normal;
-    color: black; */
-    /* border-radius: 20px;
-    opacity: 0.8;
-    background-color: #E6E6FA; */
-    /* filter : alpha(opacity=80); 
-}*/
-
-
 .right {
     background-color: lightblue;
     justify-content: center;
@@ -79,26 +28,41 @@
     width: 50%;
     height: max-content;
     padding: 15px;
-    /* margin-left: 15px; */
     margin-right: 50%;
+    margin-top: 7px;
+}
+
+#map-img {
+    position: relative;
+    /* justify-content: initial; */
+    overflow: auto;
+    float: right; 
+    width: 35%;
+    padding: 20px;
+    margin-left: 50%;
     margin-top: 7px;
 }
 
 @media only screen and (max-width:900px) {
     /* For tablets: */
 .container {
-      width: 100%;
-      justify-content: center;
-      text-align: center;
-      padding: 0;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
     }
 .right {
-      width: 100%;
+    width: 100%;
+    }
+#map-img {
+    width: 100%;
     }
 }
+
+
 @media only screen and (max-width:500px) {
     /* For mobile phones: */
-.container, .right {
+.container, .right, #map-img {
       width: 100%;
     }
 }

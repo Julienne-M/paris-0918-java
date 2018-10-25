@@ -31,7 +31,6 @@ export class ListEventsComponent implements OnInit {
         this.data.records[i].fields.timetable = this.data.records[i].fields.timetable.slice(11, 16);
         console.log(this.data);
 
-
       }
     });
 
@@ -55,19 +54,8 @@ function frenchDate(date = new Date()) {
   const weekDay = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
   const month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre',
   'Octobre', 'Novembre', 'Décembre'];
-  // récupération du jour de la semaine
-  frDate = weekDay[date.getUTCDay()] + space;
-
-  // récupération date du jour
-  frDate += date.getUTCDate() + space;
-
-  // récupération du mois de l'année
-  frDate += month[date.getMonth()] + space;
-
-  // Récupération de l'année
-  frDate += date.getFullYear();
-
-  console.log(frDate);
+  // récupération du jour de la semaine, du mois et de l'année
+  frDate = weekDay[date.getUTCDay()] + space + date.getUTCDate() + space + month[date.getMonth()] + space + date.getFullYear();
 
   return frDate;
 }

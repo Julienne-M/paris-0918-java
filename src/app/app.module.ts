@@ -13,6 +13,7 @@ import { OpenDataParisServices } from './services/OpenDataParisServices';
 import { ParametersComponent } from './parameters/parameters.component';
 import { DetailsEventsComponent } from './details-events/details-events.component';
 
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/events', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
@@ -41,6 +42,6 @@ const appRoutes: Routes = [
   providers: [
     OpenDataParisServices
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

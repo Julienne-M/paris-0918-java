@@ -1,0 +1,104 @@
+.container {
+    box-sizing: border-box;
+    font-size: 16px;
+    justify-content: center;
+    text-align: center;
+    position: center;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    /* overflow: hidden; */
+    top: 7px;
+    height: fit-content;
+    /* padding: 15px;
+    margin-left: 15px;
+    margin-right: 50%;
+    margin-top: 7px; */
+    border-radius: 20px;
+    opacity: 0.8;
+    background-color: #E6E6FA;
+}
+
+.background-img {
+    background-image: url(/src/assets/images/boireuncoup.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
+
+/* #description {
+    position: absolute;
+    display: initial;
+    box-sizing: content-box;
+    top: 8%;
+    left: 15px;
+    justify-content: initial;
+    text-align: center;
+    max-width: 45%;
+    padding-left:3.0em;
+    padding-right: unset;
+    border-radius: 20px;
+    opacity: 0.8;
+    background-color: #E6E6FA;
+    filter : alpha(opacity=80);
+} */
+
+/*.container h2 {
+    margin: 0;
+    text-align: justify;
+    justify-content: space-around;
+    font-weight: bold;
+    color: black;
+    /* border-radius: 20px;
+    opacity: 0.8;
+    background-color: #E6E6FA; */
+    /* filter : alpha(opacity=80); 
+} */
+
+
+/* .container span {
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+    font-weight: normal;
+    color: black; */
+    /* border-radius: 20px;
+    opacity: 0.8;
+    background-color: #E6E6FA; */
+    /* filter : alpha(opacity=80); 
+}*/
+
+
+.right {
+    background-color: lightblue;
+    justify-content: center;
+    text-align: center;
+    float: left;
+    width: 50%;
+    height: max-content;
+    padding: 15px;
+    /* margin-left: 15px; */
+    margin-right: 50%;
+    margin-top: 7px;
+}
+
+@media only screen and (max-width:900px) {
+    /* For tablets: */
+.container {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      padding: 0;
+    }
+.right {
+      width: 100%;
+    }
+}
+@media only screen and (max-width:500px) {
+    /* For mobile phones: */
+.container, .right {
+      width: 100%;
+    }
+}

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Event } from '../event';
+// import service for API request
+import { OpenDataParisServices } from '../services/OpenDataParisServices';
 
 @Component({
   selector: 'app-details-events',

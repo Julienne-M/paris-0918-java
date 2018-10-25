@@ -1,19 +1,25 @@
 <div class="background-img">
       <div class="container-fluid">
-        <!-- <img src="/src/assets/images/bar.jpg"style="max-width:100%;height:auto;"> -->
-          <!-- <div id="description"> -->
-            <h2>Go Out</h2>
-            <span>Trouve ici tous les détails de l'événement que tu as choisi + lien de l'événement<br/>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis quos facere reiciendis provident, illo est non et amet veniam dolorum aperiam. Tempore dolore vitae porro sit perspiciatis. Laboriosam, quod eveniet.</span>
-          <!-- </div> -->
+            <h2>{{ event.fields.title }}</h2>
+            <span>{{ event.fields.description }}</span> 
       </div>
 </div>
-    
-    <div class="right">
-      <h2>Qu'est-ce que c'est?</h2>
-        <p>Un apéro de fin de projet pour se détendre et faire le point sur les semaines passées.</p>
-      <h2>Où ça se passe?</h2>
-        <p>Quelque part.</p>
-      <h2>Combien ça coûte?</h2>
-        <p>C'est gratuit!</p>
+<div>
+  <div class="right">
+    <h2>Qu'est-ce que c'est?</h2>
+        <p>{{ event.fields.free_text }}</p>
+    <h2>Où ça se passe?</h2>
+        <p>{{ event.fields.placename }}
+          {{ event.fields.address }}</p>
+    <h2>Quand?</h2>
+        <p>{{ event.fields.date_start }}
+          {{ event.fields.date_end }}
+          {{ event.fields.timetable }}
+        </p>
+    <h2>Combien ça coûte?</h2>
+        <p>{{ event.fields.pricing_info }}</p>
+    <h2>Plus de détails en suivant ce lien</h2>
+        <p>{{ event.fields.link }}</p>
+  </div>
+<img id="map-img" src="https://via.placeholder.com/350x350" alt="map"/>
 </div>

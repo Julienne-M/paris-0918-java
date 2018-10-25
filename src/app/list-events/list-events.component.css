@@ -9,3 +9,8 @@ h2, h3 {
 .background-color {
   background-color: #edf1f3;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}

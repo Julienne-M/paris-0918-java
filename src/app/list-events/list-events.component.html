@@ -1,9 +1,11 @@
 <div class="background-color">
 <div class="row justify-content-md-center">
-    <div class="container">
-        <h2>{{ api.todaysDate.slice(0, 10) }}</h2>
-        <h3> Trouve ton évènement</h3>
+    <div class="container-fluid">
+        <h2>{{ api.todaysDate.slice(0, 10) | date : 'fullDate' }}</h2>
+        <br>
+        <h3> Trouve ton évènement </h3><br>
     </div>
+
     <button class="btn btn-success col-lg-4">
       Sélectionne tes préférences
     </button>
@@ -20,13 +22,13 @@
         <div class="col-12 col-sm-5 col-md-7">
             {{ event.fields.title }}
         </div>
-        <div class="col-12 col-sm-4 col-md-3">
+      <div class="col-12 col-sm-4 col-md-3">
             {{event.fields.placename}}
         </div>
       </div>
-      <hr>
-      <br>
+        <hr>
+        <br>
+      </div>
     </div>
   </div>
-</div>
 </div>

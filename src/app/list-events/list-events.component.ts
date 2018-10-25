@@ -26,6 +26,8 @@ export class ListEventsComponent implements OnInit {
         // this.dateFilter (this.data.records[i].fields.timetable);
         this.data.records[i].fields.timetable = this.data.records[i].fields.timetable.slice(11, 16);
         console.log(this.data);
+        daysDate();
+        daysMonth();
       }
     });
 
@@ -36,10 +38,20 @@ export class ListEventsComponent implements OnInit {
     const todaysDate = this.api.todaysDate;
 
     const tab = timeTable.split(' ').join(';').split(';');
-
     dateEvent = tab.find((element) => {
       return element <= todaysDate;
     });
     // return dateEvent;
   }
+}
+
+ function daysDate(date = new Date()) {
+   const weekDay = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+   console.log(date.getUTCDay(), weekDay[date.getUTCDay()]);
+}
+
+function daysMonth(month = new Date()) {
+   const monthYear = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre',
+  'Octobre', 'Novembre', 'Décembre'];
+  console.log(month.getMonth(), monthYear[month.getMonth()]);
 }

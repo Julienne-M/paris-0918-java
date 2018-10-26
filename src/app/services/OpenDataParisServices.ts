@@ -17,57 +17,31 @@ export class OpenDataParisServices {
   urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&refine.date_start=${this.todaysDateAPIForm}`;
 
   getConcerts() {
-//    return this.http.get(`${this.urlBase}&refine.tags=concert`);
-    return this.http.get(`${this.urlBase}`);
+    return this.http.get(`${this.urlBase}&refine.tags=concert`);
   }
 
   getExpositions() {
-    this.http.get(`${this.urlBase}&refine.tags=exposition`).subscribe((response) => {
-      this.data = response;
-    });
-    return this.data;
+    return this.http.get(`${this.urlBase}&refine.tags=exposition`);
   }
 
   getTheaters() {
-    this.http.get(`${this.urlBase}&refine.tags=theatre`).subscribe((response) => {
-      this.data = response;
-    });
-    return this.data;
+    return this.http.get(`${this.urlBase}&refine.tags=theatre`);
   }
 
   getClubbings() {
-    this.http.get(`${this.urlBase}&refine.tags=clubbing`).subscribe((response) => {
-      this.data = response;
-    });
-    return this.data;
+    return this.http.get(`${this.urlBase}&refine.tags=clubbing`);
   }
 
   getShows() {
-    this.http.get(`${this.urlBase}&refine.tags=spectacle`).subscribe((response) => {
-      this.data = response;
-    });
-    return this.data;
+    return this.http.get(`${this.urlBase}&refine.tags=spectacle`);
   }
 
   getCinemas() {
-    this.http.get(`${this.urlBase}&refine.tags=cinema`).subscribe((response) => {
-      this.data = response;
-    });
-    return this.data;
+    return this.http.get(`${this.urlBase}&refine.tags=cinema`);
   }
 
   getConferences() {
-    this.http.get(`${this.urlBase}&refine.tags=conference`).subscribe((response) => {
-      this.data = response;
-    });
-    return this.data;
-  }
-
-  getFree() {
-    this.http.get(`${this.urlBase}&refine.pricing_info=gratuit`).subscribe((response) => {
-      this.data = response;
-    });
-    return this.data;
+    return this.http.get(`${this.urlBase}&refine.tags=conference`);
   }
 }
 

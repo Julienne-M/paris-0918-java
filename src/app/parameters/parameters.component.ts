@@ -6,32 +6,30 @@ import { OpenDataParisServices } from '../services/OpenDataParisServices';
   templateUrl: './parameters.component.html',
   styleUrls: ['./parameters.component.css']
 })
+
 export class ParametersComponent implements OnInit {
-
-  constructor(private openDataParisService : OpenDataParisServices) { }
-
-  ngOnInit() {
-  }
-
   concertType = false;
   cinemaType = false;
   gratuitType = false;
   payantType = false;
-  eventType : any;
+  eventType: any;
   regexGratuit = /gratuit|Gratuit|libre/;
   regexPayant = /€|euros|Euros/;
-  inputDate = "2011-12-17";
-  col = "blue";
+  inputDate = '2011-12-17';
+  col = 'blue';
 
+  constructor(private openDataParisService: OpenDataParisServices) { }
 
+  ngOnInit() {
+  }
 
   changeConcertsFlag() {
     this.concertType = !this.concertType;
     this.cinemaType = false;
     if (this.concertType) {
-      this.col = "blue";
+      this.col = 'blue';
     } else {
-      this.col = "red";
+      this.col = 'red';
     }
   }
 
@@ -50,56 +48,42 @@ export class ParametersComponent implements OnInit {
     this.gratuitType = false;
   }
 
-
-
-  returnSearchResults() { 
-    
-    if (this.concertType == true) {
+  returnSearchResults() {
+    if (this.concertType) {
       this.eventType = this.openDataParisService.getConcerts();
       console.log(this.eventType);
-     
-    } else if (this.cinemaType == true) {
-      this.eventType = this.openDataParisService.getCinemas(); 
+
+    } else if (this.cinemaType) {
+      this.eventType = this.openDataParisService.getCinemas();
     }
-    
-    
-    
     if (this.inputDate != null) {
-      if (this.gratuitType == true) {// array.filter(élément => élément = 1)
+      if (this.gratuitType) {// array.filter(élément => élément = 1)
         for (let i = 0; i < this.eventType.records.length; i++) {
-          if (this.regexGratuit.test(this.eventType.records[i].fields.pricing_info) && this.eventType.records[i].fields.date_start == this.inputDate) {
-            console.log(this.eventType.records[i]) 
+          if (this.regexGratuit.test(this.eventType.records[i].fields.pricing_info) &&
+              this.eventType.records[i].fields.date_start === this.inputDate) {
+            console.log(this.eventType.records[i]);
           }
         }
-      } 
-      
-      
-      
-      else if (this.payantType == true) {
+      } else if (this.payantType) {
         for (let i = 0; i < this.eventType.records.length; i++) {
-          if (this.regexPayant.test(this.eventType.records[i].fields.pricing_info) && this.eventType.records[i].fields.date_start == this.inputDate) {
+          if (this.regexPayant.test(this.eventType.records[i].fields.pricing_info) &&
+              this.eventType.records[i].fields.date_start === this.inputDate) {
             console.log(this.eventType.records[i]);
           }
         }
       }
-    }
-
-
-    
-    else {
-      if (this.gratuitType == true) {
+    } else {
+      if (this.gratuitType === true) {
         for (let i = 0; i < this.eventType.records.length; i++) {
-          if (this.regexGratuit.test(this.eventType.records[i].fields.pricing_info) && this.eventType.records[i].fields.date_start == this.getDataService.todaysDateAPIForm) {
-            console.log(this.eventType.records[i]) 
+          if (this.regexGratuit.test(this.eventType.records[i].fields.pricing_info) &&
+              this.eventType.records[i].fields.date_start === this.openDataParisService.todaysDateAPIForm) {
+            console.log(this.eventType.records[i]);
           }
         }
-      } 
-      
-      
-      
-      else if (this.payantType == true) {
+      } else if (this.payantType === true) {
         for (let i = 0; i < this.eventType.records.length; i++) {
-          if (this.regexPayant.test(this.eventType.records[i].fields.pricing_info) && this.eventType.records[i].fields.date_start == this.getDataService.todaysDateAPIForm) {
+          if (this.regexPayant.test(this.eventType.records[i].fields.pricing_info) &&
+              this.eventType.records[i].fields.date_start === this.openDataParisService.todaysDateAPIForm) {
             console.log(this.eventType.records[i]);
           }
         }
@@ -107,4 +91,15 @@ export class ParametersComponent implements OnInit {
     }
   }
 }
-}
+
+/*
+concertType = false;
+  cinemaType = false;
+  gratuitType = false;
+  payantType = false;
+  eventType : any;
+  regexGratuit = /gratuit|Gratuit|libre/;
+  regexPayant = /€|euros|Euros/;
+  inputDate = '2011-12-17';
+  col = 'blue';
+  */

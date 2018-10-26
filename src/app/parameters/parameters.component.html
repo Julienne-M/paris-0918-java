@@ -1,27 +1,31 @@
-<div class="container-fluid">
-  <div class="row input-group mb-2 col-12 col-sm-6 col-md-4">
+<div class="container-fluid background-color">
+  <div class="row input-group mt-1 mb-1 col-12 col-sm-6 col-md-4">
     <h1 class="form-control">Paramètres</h1>
     <div class="input-group-append">
-      <button class="btn btn-outline-sucess" type="button">Go !</button>
+      <button class="btn btn-outline-sucess" type="button">
+        <a routerLink="/events">Go !</a>
+      </button>
     </div>
   </div>
-  <div class="row justify-content-around no-gutters">
-    <button type="checkbox" class="btn btn-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Concert</button>
-    <button type="checkbox" class="btn btn-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Exposition</button>
-    <button type="checkbox" class="btn btn-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Théatre</button>
-    <button type="checkbox" class="btn btn-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Clubbing</button>
-    <button type="checkbox" class="btn btn-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Spectacle</button>
-    <button type="checkbox" class="btn btn-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Cinéma</button>
-    <button type="checkbox" class="btn btn-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Conférence</button>
-    <button type="checkbox" class="btn btn-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Gratuit</button>
+  <div class="row justify-content-around no-gutters custom-control custom-checkbox">
+    
+
+    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Concert</button>
+    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Exposition</button>
+    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Théatre</button>
+    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Clubbing</button>
+    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Spectacle</button>
+    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Cinéma</button>
+    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Conférence</button>
+    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Gratuit</button>
   </div>
   <div class="row">
     <div>
-      Date<input type="date" name="eventDate" class="input-group mb-3 col-10 offset-1">
+      Date<input type="date" name="eventDate" class="input-group mt-1 mb-3 col-10 offset-1">
     </div>
     <div>
       Distance autour de moi en km
-      <input type="number" name="distance" placeholder="5" class="input-group mb-3 col-2 offset-1 col-sm-3">
+      <input type="number" name="distance" placeholder="5" class="input-group mt-1 mb-1 col-4 offset-1 col-sm-3">
     </div>
   </div>
 </div>

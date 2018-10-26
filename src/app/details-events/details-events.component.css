@@ -20,6 +20,11 @@
     height: fit-content;
 }
 
+#details {
+    justify-content: center;
+    text-align: center;
+}
+
 .right {
     background-color: #edf1f3;
     justify-content: center;
@@ -36,8 +41,9 @@
 .map {
     /* position: relative; */
     justify-content: center;
-    float: right;
-    /* width: 50%; */
+    /* float: right; */
+    width: 100%;
+    height: max-content; 
     /* padding: -50px 0px; */
     /* margin-left: 50%; */
     /* margin-right: 30%; */

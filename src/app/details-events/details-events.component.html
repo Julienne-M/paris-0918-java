@@ -1,27 +1,32 @@
 <div class="background-img">
-      <div class="container-fluid">
-            <h2>{{ event.fields.title }}</h2>
+    <div class="row justify-content-md-center col-12">
+      <div class="container-fluid" id="title">
+            <h2>{{ event[0].fields.title }}</h2>
             <span>{{ event.fields.description }}</span> 
       </div>
+    </div>
 </div>
 
-<div class="right">
-    <h2>Qu'est-ce que c'est?</h2>
-        <p>{{ event.fields.free_text }}</p>
-    <h2>Où ça se passe?</h2>
-        <p>{{ event.fields.placename }}
-          {{ event.fields.address }}</p>
-    <h2>Quand?</h2>
-        <p>{{ event.fields.date_start }}
-          {{ event.fields.date_end }}
-          {{ event.fields.timetable }}
-        </p>
-    <h2>Combien ça coûte?</h2>
-        <p>{{ event.fields.pricing_info }}</p>
-    <h2>Plus de détails en suivant ce lien</h2>
-        <p>{{ event.fields.link }}</p>
-</div>
-
-<div class="map">
-  <img id="map-img" src="https://via.placeholder.com/350x350" alt="map"/>
+<div class="container" id="details">
+    <div class="row">
+        <div class="right col-12 col-sm-12 col-md-6">
+            <h2>Qu'est-ce que c'est?</h2>
+                <p>{{ event[0].fields.free_text }}</p>
+            <h2>Où ça se passe?</h2>
+                <p>{{ event.fields.placename }}
+                {{ event.fields.address }}</p>
+            <h2>Quand?</h2>
+                <p>{{ event.fields.date_start }}
+                {{ event.fields.date_end }}
+                {{ event.fields.timetable }}
+                </p>
+            <h2>Combien ça coûte?</h2>
+                <p>{{ event.fields.pricing_info }}</p>
+            <h2>Plus de détails en suivant ce lien</h2>
+                <p>{{ event.fields.link }}</p>
+        </div>
+        <div class="map col-12 col-sm-12 col-md-6">
+            <img id="map-img" src="https://via.placeholder.com/350x350" alt="map"/>
+        </div>
+    </div>
 </div>

@@ -43,5 +43,9 @@ export class OpenDataParisServices {
   getConferences() {
     return this.http.get(`${this.urlBase}&refine.tags=conference`);
   }
+
+  getAll() {
+    return this.http.get(`${this.urlBase}`);
+  }
 }
 

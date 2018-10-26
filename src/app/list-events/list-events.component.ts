@@ -18,7 +18,7 @@ export class ListEventsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.api.getConcerts().subscribe((response) => {
+    this.api.getAll().subscribe((response) => {
       this.data = response;
       // Flag for the ngIf in the HTML
       this.isLoaded = true;
@@ -27,35 +27,23 @@ export class ListEventsComponent implements OnInit {
       // Fliter for the time of Event
       for (let i = 0; i < this.data.records.length; i++) {
         //  Extraction de l'heure
-        // this.dateFilter (this.data.records[i].fields.timetable);
         this.data.records[i].fields.timetable = this.data.records[i].fields.timetable.slice(11, 16);
-        console.log(this.data);
-
       }
+      this.data.records.sort();
+      console.log(this.data);
     });
-
-  }
-
-  dateFilter (timeTable: string) {
-    let dateEvent = '';
-    const todaysDate = this.api.todaysDate;
-
-    const tab = timeTable.split(' ').join(';').split(';');
-    dateEvent = tab.find((element) => {
-      return element <= todaysDate;
-    });
-    // return dateEvent;
   }
 }
 
-function frenchDate(date = new Date()) {
-  let frDate: string;
-  const space = ' ';
+const frenchDate = (date = new Date()) => {
   const weekDay = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
-  const month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre',
-  'Octobre', 'Novembre', 'Décembre'];
-  // récupération du jour de la semaine, du mois et de l'année
-  frDate = weekDay[date.getUTCDay()] + space + date.getUTCDate() + space + month[date.getMonth()] + space + date.getFullYear();
+  const month   = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
+                   'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  const space = ' ';
 
-  return frDate;
-}
+  // récupération du jour de la semaine, du mois et de l'année en français
+  return   weekDay[date.getUTCDay()] + space
+         + date.getUTCDate() + space
+         + month[date.getMonth()] + space
+         + date.getFullYear();
+};

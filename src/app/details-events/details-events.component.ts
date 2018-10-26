@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Event } from '../event';
+import { ListEventsComponent } from '../list-events/list-events.component';
 // import service for API request
 import { OpenDataParisServices } from '../services/OpenDataParisServices';
 

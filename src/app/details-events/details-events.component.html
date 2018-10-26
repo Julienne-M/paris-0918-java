@@ -1,13 +1,13 @@
-<div class="background-img">
+<div class="background-img col-12">
       <div class="container-fluid">
-            <h2>{{ event.fields.title }}</h2>
+            <h2>{{ event[0].fields.title }}</h2>
             <span>{{ event.fields.description }}</span> 
       </div>
 </div>
 
 <div class="right">
     <h2>Qu'est-ce que c'est?</h2>
-        <p>{{ event.fields.free_text }}</p>
+        <p>{{ event[0].fields.free_text }}</p>
     <h2>Où ça se passe?</h2>
         <p>{{ event.fields.placename }}
           {{ event.fields.address }}</p>

@@ -18,7 +18,7 @@ export class ListEventsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.api.getConcerts().subscribe((response) => {
+    this.api.getAll().subscribe((response) => {
       this.data = response;
       // Flag for the ngIf in the HTML
       this.isLoaded = true;
@@ -29,11 +29,9 @@ export class ListEventsComponent implements OnInit {
         //  Extraction de l'heure
         // this.dateFilter (this.data.records[i].fields.timetable);
         this.data.records[i].fields.timetable = this.data.records[i].fields.timetable.slice(11, 16);
-        console.log(this.data);
-
       }
+      console.log(this.data);
     });
-
   }
 
   dateFilter (timeTable: string) {

@@ -29,7 +29,7 @@ export class ListEventsComponent implements OnInit {
         //  Extraction de l'heure
         this.data.records[i].fields.timetable = this.data.records[i].fields.timetable.slice(11, 16);
       }
-      this.data.records.sort();
+      // this.data.records.fields.timetable.sort();
       console.log(this.data);
     });
   }

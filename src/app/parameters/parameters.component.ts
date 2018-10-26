@@ -38,6 +38,11 @@ export class ParametersComponent implements OnInit {
   changeCinemasFlag() {
     this.cinemaType = !this.cinemaType;
     this.concertType = false;
+    if (this.concertType) {
+      this.col = "blue";
+    } else {
+      this.col = "red";
+    }
   }
 
   changeGratuitsFlag() {

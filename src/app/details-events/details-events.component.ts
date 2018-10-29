@@ -3,7 +3,6 @@ import { ListEventsComponent } from '../list-events/list-events.component';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 // import service for API request
 import { OpenDataParisServices } from '../services/OpenDataParisServices';
-import { TrustedStyleString } from '@angular/core/src/sanitization/bypass';
 
 @Component({
   selector: 'app-details-events',

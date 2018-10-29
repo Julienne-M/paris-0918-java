@@ -19,17 +19,14 @@ export class ListEventsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // formatage de la date
+    this.frDate = frenchDate();
     this.api.getAll().subscribe((response) => {
       this.data = response;
       // Flag for the ngIf in the HTML
       this.isLoaded = true;
-      // formatage de la date
-      this.frDate = frenchDate();
-      console.log(this.data.records);
       this.events = this.data.records.map(eventFormat);
-      console.log(this.events);
-//      this.eventsSorted = eventSort(this.events);
-      console.log(this.eventsSorted);
+      this.eventsSorted = eventSort(this.events);
     });
   }
 }
@@ -54,20 +51,24 @@ const eventFormat = (event: any) => {
 
 const eventSort = (events: [any]) => {
   const eventsOut: any = [];
-  const tempHeure = '';
-  console.log(events.length);
-  for ( let i = 0 ; i < events.length ; i++ ) {
-    const indice = i;
-    console.log(`indice i = ${ i } - timetable ${ events[i].fields.timetable }`);
-    /*
-    for ( let j = 0 ; j < events.length ; j++ ) {
-      if ( this.events([j]).fields.timetable < tempHeure) {
-        this.tempHeure = this.events([j]).fields.timetable;
-      } // endif
-      eventsSorted.push(events[indice]);
-    } // endfor
-    */
-    return eventsOut;
-  } // fin de evenSort
-};
+  const alreadySort = [];
+  let tempHeure = '';
+  let indice = 0;
+  console.log( `nombre d'événements ${events.length}`);
 
+  for (let i = 0; i < events.length; i++) {
+    tempHeure = events[i].fields.timetable;
+    for (let j = 0; j < events.length; j++) {
+      if ( !alreadySort.includes(j) && events[j].fields.timetable < tempHeure ) {
+        tempHeure = events[j].fields.timetable;
+        indice = j;
+      } // endif
+    } // endfor
+    eventsOut.push(events[indice]);
+    alreadySort.push(indice);
+  } // endfor
+  for ( let i = 0; i < eventsOut.length; i++ ) {
+    console.log(eventsOut[i].fields.timetable);
+  }
+  return eventsOut;
+};

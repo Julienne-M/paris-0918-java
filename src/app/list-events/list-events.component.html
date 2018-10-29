@@ -6,7 +6,7 @@
     </button>
   </div>
   <div *ngIf="isLoaded">
-    <div *ngFor="let event of data.records">
+    <div *ngFor="let event of events">
       <div class="row">
         <div class="col-12 col-sm-3 col-md-2">
           {{ event.fields.date_start }}
@@ -19,8 +19,8 @@
           {{event.fields.placename}}
         </div>
       </div>
-      <hr>
+    <hr>
     </div>
-    <br>
+  <br>
   </div>
 </div>

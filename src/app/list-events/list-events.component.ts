@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../event';
 import { OpenDataParisServices } from '../services/OpenDataParisServices';
-import { stringify } from '@angular/core/src/util';
 
 @Component({
   selector: 'app-list-events',
@@ -12,6 +11,8 @@ import { stringify } from '@angular/core/src/util';
 export class ListEventsComponent implements OnInit {
   isLoaded = false;
   data: any;
+  events: [any];
+  eventsSorted: [any];
   frDate: string;
 
   constructor(private api: OpenDataParisServices) {
@@ -24,13 +25,11 @@ export class ListEventsComponent implements OnInit {
       this.isLoaded = true;
       // formatage de la date
       this.frDate = frenchDate();
-      // Fliter for the time of Event
-      for (let i = 0; i < this.data.records.length; i++) {
-        //  Extraction de l'heure
-        this.data.records[i].fields.timetable = this.data.records[i].fields.timetable.slice(11, 16);
-      }
-      // this.data.records.fields.timetable.sort();
-      console.log(this.data);
+      console.log(this.data.records);
+      this.events = this.data.records.map(eventFormat);
+      console.log(this.events);
+//      this.eventsSorted = eventSort(this.events);
+      console.log(this.eventsSorted);
     });
   }
 }
@@ -47,3 +46,28 @@ const frenchDate = (date = new Date()) => {
          + month[date.getMonth()] + space
          + date.getFullYear();
 };
+
+const eventFormat = (event: any) => {
+ event.fields.timetable = event.fields.timetable.slice(11, 16);
+ return event;
+};
+
+const eventSort = (events: [any]) => {
+  const eventsOut: any = [];
+  const tempHeure = '';
+  console.log(events.length);
+  for ( let i = 0 ; i < events.length ; i++ ) {
+    const indice = i;
+    console.log(`indice i = ${ i } - timetable ${ events[i].fields.timetable }`);
+    /*
+    for ( let j = 0 ; j < events.length ; j++ ) {
+      if ( this.events([j]).fields.timetable < tempHeure) {
+        this.tempHeure = this.events([j]).fields.timetable;
+      } // endif
+      eventsSorted.push(events[indice]);
+    } // endfor
+    */
+    return eventsOut;
+  } // fin de evenSort
+};
+

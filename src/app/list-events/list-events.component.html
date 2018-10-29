@@ -1,33 +1,26 @@
 <div class="container-fluid background-color">
-<div class="row justify-content-md-center">
-  <div class="container-fluid">
-    <h2>{{ frDate }}</h2>
-    <br>
+  <div class="row justify-content-md-center">
+    <h4 class="h4 col-md-5 mt-1">{{ frDate }}</h4>
+    <button class="btn btn-success col-md-5 mt-1">
+      <a routerLink="/param">Sélectionne tes préférences</a>
+    </button>
   </div>
-  <button class="btn btn-success col-md-4">
-    <a routerLink="/param">Sélectionne tes préférences</a>
-  </button>
-</div>
-
-<br>
-<div class="container-fluid blue">
   <div *ngIf="isLoaded">
     <div *ngFor="let event of data.records">
       <div class="row">
         <div class="col-12 col-sm-3 col-md-2">
-            {{ event.fields.date_start }}
-            {{ event.fields.timetable }}
+          {{ event.fields.date_start }}
+          {{ event.fields.timetable }}
         </div>
         <div class="col-12 col-sm-5 col-md-7">
-            {{ event.fields.title }}
+          {{ event.fields.title }}
         </div>
-      <div class="col-12 col-sm-4 col-md-3">
-            {{event.fields.placename}}
+        <div class="col-12 col-sm-4 col-md-3">
+          {{event.fields.placename}}
         </div>
       </div>
-        <hr>
-        <br>
-      </div>
+      <hr>
     </div>
+    <br>
   </div>
 </div>

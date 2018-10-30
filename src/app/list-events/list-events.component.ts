@@ -47,3 +47,4 @@ const frenchDate = (date = new Date()) => {
          + month[date.getMonth()] + space
          + date.getFullYear();
 };
+

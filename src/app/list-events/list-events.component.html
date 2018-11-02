@@ -6,21 +6,21 @@
     </button>
   </div>
   <div *ngIf="isLoaded">
-    <div *ngFor="let event of data.records">
+    <div *ngFor="let event of eventsSorted; let i = index">
       <div class="row">
         <div class="col-12 col-sm-3 col-md-2">
           {{ event.fields.date_start }}
           {{ event.fields.timetable }}
         </div>
-        <div class="col-12 col-sm-5 col-md-7">
+        <div class="col-12 col-sm-5 col-md-7"><a [routerLink]="[i]">
           {{ event.fields.title }}
-        </div>
+        </a></div>
         <div class="col-12 col-sm-4 col-md-3">
           {{event.fields.placename}}
         </div>
       </div>
-      <hr>
+    <hr>
     </div>
-    <br>
+  <br>
   </div>
 </div>

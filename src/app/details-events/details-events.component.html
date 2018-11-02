@@ -2,9 +2,9 @@
     <div class="row">
       <div class="container-fluid" id="title">
             <h2>Titre de l'événement<br/>
-                {{ event.fields.title }}</h2>
+                {{ event[0].fields.title }}</h2>
             <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo minus culpa placeat voluptatem facere labore, beatae repellendus deserunt similique maiores veritatis fugiat maxime distinctio et aperiam autem nobis non. Dolorem?
-                {{ event.fields.description }}</h5> 
+                {{ event[0].fields.description }}</h5> 
       </div>
     </div>
 </div>
@@ -14,23 +14,23 @@
         <div class="right col-12 col-sm-12 col-md-6">
             <h2>Qu'est-ce que c'est?</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam, nihil quas consequuntur quod nam voluptate voluptatum explicabo quae quia est, voluptas nemo, velit eaque tempore officia a reprehenderit cupiditate sequi?
-                {{ event.fields.free_text }}</p>
+                {{ event[0].fields.free_text }}</p>
             <h2>Où ça se passe?</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis iste officiis quibusdam suscipit dolorem deleniti doloremque corrupti aspernatur labore odio, impedit, cum harum libero dignissimos dolor voluptatem necessitatibus ad laborum.
-                {{ event.fields.placename }}
-                {{ event.fields.address }}</p>
+                {{ event[0].fields.placename }}
+                {{ event[0].fields.address }}</p>
             <h2>Quand?</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nisi corporis iure architecto quam cum atque obcaecati, modi ut laudantium minus? Assumenda aspernatur amet reprehenderit, ratione molestias non sint. Velit!
-                {{ event.fields.date_start }}
-                {{ event.fields.date_end }}
-                {{ event.fields.timetable }}
+                {{ event[0].fields.date_start }}
+                {{ event[0].fields.date_end }}
+                {{ event[0].fields.timetable }}
                 </p>
             <h2>Combien ça coûte?</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam eius esse omnis totam? Minima delectus minus nam sit, maiores ullam inventore officia rem tempora quam at itaque possimus veritatis error!
-                {{ event.fields.pricing_info }}</p>
+                {{ event[0].fields.pricing_info }}</p>
             <h2>Plus de détails en suivant ce lien</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero reiciendis consectetur inventore vel! Nisi dolore architecto accusantium commodi ipsa impedit assumenda reiciendis quas dolores reprehenderit. Debitis, aspernatur a. Quidem, sit!
-                {{ event.fields.link }}</p>
+                {{ event[0].fields.link }}</p>
                 <br/>
         </div>
         <div class="map col-sm-12 col-md-6">

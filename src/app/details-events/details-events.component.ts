@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListEventsComponent } from '../list-events/list-events.component';
+import { MapComponent } from '../map/map.component';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 // import service for API request
 import { OpenDataParisServices } from '../services/OpenDataParisServices';

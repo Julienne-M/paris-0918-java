@@ -8,6 +8,8 @@ import * as L from 'leaflet';
 })
 export class MapComponent implements OnInit {
 
+  map: any;
+
   constructor() { }
 
   ngOnInit() {
@@ -18,10 +20,40 @@ export class MapComponent implements OnInit {
     attribution: 'Carte de Paris'
   }).addTo(map);
 
+  map.locate({setView: true, maxZoom: 16});
+
+//   function onLocationFound(e) {
+//     const radius = e.accuracy / 2;
+
+//     L.marker(e.latlng).addTo(map)
+//         .bindPopup('You are within ' + radius + ' meters from this point').openPopup();
+
+//     L.circle(e.latlng, radius).addTo(map);
+// }
+
+map.on('locationfound', onLocationFound);
+
+function onLocationFound(e) {
   const myIcon = L.icon({
     iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
   });
-  L.marker([48.850564, 2.350188], {icon: myIcon}).bindPopup('Vous êtes ici').addTo(map).openPopup();
-  }
+  L.marker([e.latitude, e.longitude], {icon: myIcon}).bindPopup('Vous êtes ici').addTo(map).openPopup();
 
+}
+
+function onLocationError(e) {
+  alert(e.message);
+}
+map.on('locationerror', onLocationError);
+
+// map.on('locationfound', onLocationFound);
+
+  // const myIcon = L.icon({
+  //   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
+  // });
+  // L.marker([48.850564, 2.350188], {icon: myIcon}).bindPopup('Vous êtes ici').addTo(map).openPopup();
+  // }
+
+
+  }
 }

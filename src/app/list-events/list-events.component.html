@@ -12,9 +12,9 @@
           {{ event.fields.date_start }}
           {{ event.fields.timetable }}
         </div>
-        <div class="col-12 col-sm-5 col-md-7"><a [routerLink]="[i]">
-          {{ event.fields.title }}
-        </a></div>
+        <div class="col-12 col-sm-5 col-md-7">
+          <a [routerLink]="[i]">{{ event.fields.title }}</a>
+        </div>
         <div class="col-12 col-sm-4 col-md-3">
           {{event.fields.placename}}
         </div>

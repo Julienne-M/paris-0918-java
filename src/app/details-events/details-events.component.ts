@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ListEventsComponent } from '../list-events/list-events.component';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 // import service for API request
@@ -11,7 +11,9 @@ import { OpenDataParisServices } from '../services/OpenDataParisServices';
 })
 export class DetailsEventsComponent implements OnInit {
 
-id: any;
+  @Input() id: any;
+  @Input() events: any[];
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {

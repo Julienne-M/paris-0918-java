@@ -17,6 +17,11 @@ export class MapComponent implements OnInit {
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: 'Carte de Paris'
   }).addTo(map);
+
+  const myIcon = L.icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
+  });
+  L.marker([48.850564, 2.350188], {icon: myIcon}).bindPopup('Vous êtes ici').addTo(map).openPopup();
   }
 
 }

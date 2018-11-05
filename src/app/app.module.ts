@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { OpenDataParisServices } from './services/OpenDataParisServices';
 import { ParametersComponent } from './parameters/parameters.component';
 import { DetailsEventsComponent } from './details-events/details-events.component';
+import { MapComponent } from './map/map.component';
 
 
 const appRoutes: Routes = [
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     FooterComponent,
     HomeComponent,
     ParametersComponent,
-    DetailsEventsComponent
+    DetailsEventsComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

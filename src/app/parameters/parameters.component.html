@@ -8,15 +8,17 @@
     </div>
   </div>
   <div class="row justify-content-around no-gutters custom-control custom-checkbox">
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Concert</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Exposition</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Théatre</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Clubbing</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Spectacle</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Cinéma</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Conférence</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Gratuit</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Autres</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="changeConcertsFlag()" [ngStyle]="{color: concertType ? 'blue' : 'red'}">Concerts</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="changeExpositionsFlag()" [ngStyle]="{color: expositionType ? 'blue' : 'red'}">Expositions</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="changeTheatersFlag()" [ngStyle]="{color: theaterType ? 'blue' : 'red'}">Théâtres</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="changeClubbingdFlag()" [ngStyle]="{color: clubbingType ? 'blue' : 'red'}">Clubbing</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="changeShowsFlag()" [ngStyle]="{color: showType ? 'blue' : 'red'}">Spectacles</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="changeCinemasFlag()" [ngStyle]="{color: cinemaType ? 'blue' : 'red'}">Cinémas</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="changeConferencesFlag()" [ngStyle]="{color: conferenceType ? 'blue' : 'red'}">Conférences</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="changeOthersFlag()" [ngStyle]="{color: otherType ? 'blue' : 'red'}">Autres</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="changeGratuitsFlag()" [ngStyle]="{color: gratuitType ? 'blue' : 'red'}">Gratuit</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="changePayantsFlag()" [ngStyle]="{color: payantType ? 'blue' : 'red'}">Payant</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3" (click)="returnSearchResults()" [ngStyle]="color: 'red'">Recherche</button>
   </div>
   <div class="row">
     <div>
@@ -26,5 +28,10 @@
       <input type="number" name="distance" placeholder="5" class="input-group mt-1 mb-1 col-4 offset-1 col-sm-3">
       <label forName="distance">Distance autour de moi en km</label>
     </div>
+  </div>
+</div>
+<div *ngIf="isReady">
+  <div *ngFor="let event of eventTypePricing">
+    <p>{{ event.fields.date_start }}</p>
   </div>
 </div>

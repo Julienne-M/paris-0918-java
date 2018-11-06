@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OpenDataParisServices } from '../services/OpenDataParisServices';
+import { MapServices } from '../services/map.services';
 import * as L from 'leaflet';
 
 @Component({
@@ -12,11 +13,14 @@ export class MapComponent implements OnInit {
   map: any;
   dataFiltered = [];
   event: any;
+  position: Position;
 
-  constructor(private route: ActivatedRoute, private api: OpenDataParisServices) { }
+  constructor(private route: ActivatedRoute, private api: OpenDataParisServices, private gps: MapServices) { }
 
   ngOnInit() {
     // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
+    this.position = this.gps.findme();
+    console.log(this.position);
     const map = L.map('map').setView([48.850564, 2.350188], 12);
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -26,7 +30,7 @@ export class MapComponent implements OnInit {
     map.locate({setView: true, maxZoom: 16});
 
     map.on('locationfound', onLocationFound);
-    map.on('locationfound', eventLocation);
+    // map.on('locationfound', eventLocation);
 
     function onLocationFound(e: any) {
       const myIcon = L.icon({
@@ -48,4 +52,5 @@ export class MapComponent implements OnInit {
 
   map.on('locationerror', onLocationError);
   }
+
 }

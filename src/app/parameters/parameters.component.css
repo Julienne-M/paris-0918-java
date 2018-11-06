@@ -7,9 +7,10 @@
 
 .btn {
   text-align: center;
-}
-
-button {
   color: white;
   border: 0px;
+}
+
+.container-fluid {
+  font-family: 'Courier New', Courier, monospace;
 }

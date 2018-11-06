@@ -12,8 +12,7 @@ import { OpenDataParisServices } from '../services/OpenDataParisServices';
 })
 export class DetailsEventsComponent implements OnInit {
 
-  @Input() id: any;
-  @Input() events: any[];
+  id: any;
 
   constructor(private route: ActivatedRoute) { }
 

@@ -26,6 +26,8 @@ export class ParametersComponent implements OnInit {
   result: any;
   isgood = false;
   dateFormIsValid = false;
+  isLoading = false;
+  noEvents = false;
 
   constructor(private openDataParisService: OpenDataParisServices) { }
 
@@ -141,52 +143,63 @@ export class ParametersComponent implements OnInit {
   }
 
   returnSearchResults() {
+    this.isLoading = true;
     if (this.concertType) {
       this.openDataParisService.getConcertsWD().subscribe((response) => {
         this.eventType = response;
         this.result = this.secondFilter(this.eventType);
+        this.isLoading = false;
         this.isgood = true;
         });
     } else if (this.expositionType) {
       this.eventType = this.openDataParisService.getExpositionsWD().subscribe((response) => {
         this.eventType = response;
         this.result = this.secondFilter(this.eventType);
+        this.isLoading = false;
         this.isgood = true;
       });
     } else if (this.theaterType) {
       this.eventType = this.openDataParisService.getTheatersWD().subscribe((response) => {
         this.eventType = response;
         this.result = this.secondFilter(this.eventType);
+        this.isLoading = false;
         this.isgood = true;
       });
     } else if (this.clubbingType) {
       this.eventType = this.openDataParisService.getClubbingsWD().subscribe((response) => {
         this.eventType = response;
         this.result = this.secondFilter(this.eventType);
+        this.isLoading = false;
         this.isgood = true;
+        this.isThereNoEvents(this.isgood, this.result);
+
       });
     } else if (this.showType) {
       this.eventType = this.openDataParisService.getShowsWD().subscribe((response) => {
         this.eventType = response;
         this.result = this.secondFilter(this.eventType);
+        this.isLoading = false;
         this.isgood = true;
       });
     } else if (this.cinemaType) {
       this.eventType = this.openDataParisService.getCinemasWD().subscribe((response) => {
         this.eventType = response;
         this.result = this.secondFilter(this.eventType);
+        this.isLoading = false;
         this.isgood = true;
       });
     } else if (this.conferenceType) {
       this.eventType = this.openDataParisService.getConferencesWD().subscribe((response) => {
         this.eventType = response;
         this.result = this.secondFilter(this.eventType);
+        this.isLoading = false;
         this.isgood = true;
       });
     } else {
       this.openDataParisService.getAllWD().subscribe((response) => {
         this.eventType = response;
         this.result = this.secondFilter(this.eventType);
+        this.isLoading = false;
         this.isgood = true;
       });
     }
@@ -214,5 +227,13 @@ export class ParametersComponent implements OnInit {
       }
     }
     return this.eventTypePricing;
+  }
+  isThereNoEvents = (isgood, result) => {
+    console.log('entré dans isThereNoEvent');
+    if (isgood ===  true && result === undefined) {
+      isgood = false;
+      this.noEvents = true;
+      console.log('pas devents dsl');
+    }
   }
 }

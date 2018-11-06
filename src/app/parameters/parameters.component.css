@@ -1,9 +1,22 @@
-.background-color {
-  background-image: url("../../assets/images/concert-2.jpg");
-  color: white;
-  position: fixed;
+.background-img {
+  background-image: url('../../assets/images/concert-2.jpg');
+  background-color: white;
+  /* box-sizing: border-box; */
+  /* height: stretch; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  /* Fixe l'image en haut à gauche de la page */
+  position: fixed; 
+  /* top: 0; 
+  left: 0;  */
+  /* Préserve le ratio de l'image */
+  min-width: 100%;
   min-height: 100%; 
 } 
+input {
+ margin-top: 20px;
+}
 
 .btn {
   text-align: center;

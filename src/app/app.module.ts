@@ -21,7 +21,8 @@ const appRoutes: Routes = [
   { path: 'events', component: ListEventsComponent },
   { path: 'param', component: ParametersComponent },
   // { path: 'details', component: DetailsEventsComponent },
-  { path: 'events/:id', component: DetailsEventsComponent },
+//  { path: 'events/:id', component: DetailsEventsComponent },
+  { path: 'events/:event', component: DetailsEventsComponent },
   { path: '**', component: HomeComponent }
 ];
 

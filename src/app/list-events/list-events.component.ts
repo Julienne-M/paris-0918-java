@@ -28,9 +28,6 @@ export class ListEventsComponent implements OnInit {
       this.events = this.data.records.map(eventFormat);
       // sort events list
       this.eventsSorted = eventSort(this.events);
-/*      for (let i = 0; i < this.eventsSorted.length; i++) {
-        console.log(this.eventsSorted.fields[i].timetable + ' ' + this.eventsSorted[i]fields.title);
-      } */
     });
   }
 }
@@ -58,14 +55,14 @@ const eventFormat = (event: any) => {
 // sort the list of events by started hour
 const eventSort = (eventsIn: [any]) => {
 
-  const eventsOut: Array<any> = [];            // sorted array
+  const eventsOut: Array<any> = [];      // sorted array
   const alreadySort: Array<number> = []; // array of index of event already sorted
   let tempHour: string;
   let index: number;
 
   while (eventsOut.length !== eventsIn.length) {
     index = 0;
-    tempHour = eventsIn[index].fields.timetable;
+    tempHour = '24:00';
     // boucle sur la liste pour voir si un événement ne commence pas plus tôt
     for (let j = 0; j < eventsIn.length; j++) {
       if (!alreadySort.includes(j) && eventsIn[j].fields.timetable <= tempHour) {

@@ -1,10 +1,8 @@
 <div class="background-img col-12"> 
     <div class="row">
       <div class="container-fluid" id="title">
-            <h2>Title<br/>
-            </h2>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo minus culpa placeat voluptatem facere labore, beatae repellendus deserunt similique maiores veritatis fugiat maxime distinctio et aperiam autem nobis non. Dolorem?
-            </h5> 
+            <h2>{{ event.fields.title }}<br/></h2>
+            <h5>{{ event.fields.free_text }}</h5> 
       </div>
     </div>
 </div>
@@ -13,22 +11,16 @@
     <div class="row">
         <div class="right col-12 col-sm-12 col-md-6">
             <h2>Qu'est-ce que c'est?</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam, nihil quas consequuntur quod nam voluptate voluptatum explicabo quae quia est, voluptas nemo, velit eaque tempore officia a reprehenderit cupiditate sequi?
-                </p>
+                <p>{{ event.fields.description }}</p>
             <h2>Où ça se passe?</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis iste officiis quibusdam suscipit dolorem deleniti doloremque corrupti aspernatur labore odio, impedit, cum harum libero dignissimos dolor voluptatem necessitatibus ad laborum.
-                
-                </p>
+                <p>{{ event.fields.placename }}<br/>{{ event.fields.address }}</p>
+                <p>Coordonnées lattitude {{ event.fields.latlon[0] }} longitude {{ event.fields.latlon[1] }}</p>
             <h2>Quand?</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora nisi corporis iure architecto quam cum atque obcaecati, modi ut laudantium minus? Assumenda aspernatur amet reprehenderit, ratione molestias non sint. Velit!
-                </p>
+                <p>{{ event.fields.space_time_info }}</p>
             <h2>Combien ça coûte?</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam eius esse omnis totam? Minima delectus minus nam sit, maiores ullam inventore officia rem tempora quam at itaque possimus veritatis error!
-                </p>
-            <h2>Plus de détails en suivant ce lien</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero reiciendis consectetur inventore vel! Nisi dolore architecto accusantium commodi ipsa impedit assumenda reiciendis quas dolores reprehenderit. Debitis, aspernatur a. Quidem, sit!
-                }</p>
-                <br/>
+                <p>{{ event.fields.title }}</p>
+            <h4><a href="{{event.fields.link}}" target="_blank">Plus de détails en suivant ce lien</a></h4>
+            <br/>
         </div>
         <div class="map col-sm-12 col-md-6">
             <app-map></app-map>

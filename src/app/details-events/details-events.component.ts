@@ -8,15 +8,12 @@ import { OpenDataParisServices } from '../services/OpenDataParisServices';
   styleUrls: ['./details-events.component.css']
 })
 export class DetailsEventsComponent implements OnInit {
-  dataFiltered = [];
   event: any;
 
   constructor(private route: ActivatedRoute, private api: OpenDataParisServices) { }
 
   ngOnInit() {
-    this.dataFiltered = this.api.dataFiltered;
     const id = this.route.snapshot.params['id'];
     this.event = this.api.getEventById(id);
-    console.log(this.event);
   }
 }

@@ -1,6 +1,8 @@
 .background-color {
-    background-image: url("../../assets/images/concert-2.jpg");
-    color: white;
+  background-image: url("../../assets/images/concert-2.jpg");
+  color: white;
+  position: fixed;
+  min-height: 100%; 
 } 
 
 .btn {
@@ -15,4 +17,22 @@
 
 .container-fluid {
   font-family: 'Courier New', Courier, monospace;
+}
+
+.loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -40px 0 0 -40px;
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	border: 15px solid grey;
+	border-top-color: white;
+	animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }

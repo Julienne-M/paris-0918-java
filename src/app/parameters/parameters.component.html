@@ -8,34 +8,39 @@
     </div>
   </div> -->
   <div class="row no-gutters custom-control custom-checkbox">
-    <input type="texte" (change)="handleDateChange()" id="userInput" name="eventDate" placeholder="Date : aaaa-mm-jj" class="input-group mb-1 col-4 offset-4 col-sm-4 offset-sm-4 col-md-4 offset-md-4 col-lg-3 offset-lg-3" [ngStyle]="{border: dateFormIsValid ? '3px solid blue' : ''}">
+    <input type="texte" [(value)]="openDataParisService.todaysDateAPIForm" (change)="handleDateChange()" id="userInput" name="eventDate" placeholder="Date : aaaa-mm-jj" class="input-group mb-1 col-4 offset-4 col-sm-4 offset-sm-4 col-md-4 offset-md-4 col-lg-3 offset-lg-5" [ngStyle]="{border: dateFormIsValid ? '3px solid white' : ''}">
   </div>
   <div class="row no-gutters custom-control custom-checkbox">
     <div class="row">
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-1 offset-lg-1" (click)="changeConcertsFlag()" [ngStyle]="{border: concertType ? '4px solid white' : ''}">Concerts</button>
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4  offset-2 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-1 offset-lg-1" (click)="changeExpositionsFlag()" [ngStyle]="{border: expositionType ? '4px solid white' : ''}">Expositions</button>
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-1 offset-lg-1" (click)="changeTheatersFlag()" [ngStyle]="{border: theaterType ? '4px solid white' : ''}">Théâtres</button>
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-2 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-1 offset-lg-1" (click)="changeClubbingsFlag()" [ngStyle]="{border: clubbingType ? '4px solid white' : ''}">Clubbing</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-2 offset-lg-1" (click)="changeConcertsFlag()" [ngStyle]="{border: concertType ? '4px solid white' : ''}">Concerts</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5  offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-2 offset-lg-1" (click)="changeExpositionsFlag()" [ngStyle]="{border: expositionType ? '4px solid white' : ''}">Expositions</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-2 offset-lg-1" (click)="changeTheatersFlag()" [ngStyle]="{border: theaterType ? '4px solid white' : ''}">Théâtres</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-2 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-2 offset-lg-1" (click)="changeClubbingsFlag()" [ngStyle]="{border: clubbingType ? '4px solid white' : ''}">Clubbing</button>
     </div>
     <div class="row">
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-1 offset-lg-1" (click)="changeShowsFlag()" [ngStyle]="{border: showType ? '4px solid white' : ''}">Spectacles</button>
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-2 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-1 offset-lg-1" (click)="changeCinemasFlag()" [ngStyle]="{border: cinemaType ? '4px solid white' : ''}">Cinémas</button>
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-1 offset-lg-1" (click)="changeConferencesFlag()" [ngStyle]="{border: conferenceType ? '4px solid white' : ''}">Conférences</button>
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-2 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-1 offset-lg-1" (click)="changeOthersFlag()" [ngStyle]="{border: otherType ? '4px solid white' : ''}">Autres</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-2 offset-lg-1" (click)="changeShowsFlag()" [ngStyle]="{border: showType ? '4px solid white' : ''}">Spectacles</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-2 offset-lg-1" (click)="changeCinemasFlag()" [ngStyle]="{border: cinemaType ? '4px solid white' : ''}">Cinémas</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-2 offset-lg-1" (click)="changeConferencesFlag()" [ngStyle]="{border: conferenceType ? '4px solid white' : ''}">Conférences</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-2 offset-lg-1" (click)="changeOthersFlag()" [ngStyle]="{border: otherType ? '4px solid white' : ''}">Autres</button>
     </div>
   </div>
   <div class="row no-gutters custom-control custom-checkbox"> 
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-1 offset-lg-3" (click)="changeGratuitsFlag()" [ngStyle]="{border: gratuitType ? '4px solid white' : ''}">Gratuit</button>
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-2 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-1 offset-lg-1" (click)="changePayantsFlag()" [ngStyle]="{border: payantType ? '4px solid white' : ''}">Payant</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-1 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-3 offset-lg-2" (click)="changeGratuitsFlag()" [ngStyle]="{border: gratuitType ? '4px solid white' : ''}">Gratuit</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-2 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-3 offset-lg-3" (click)="changePayantsFlag()" [ngStyle]="{border: payantType ? '4px solid white' : ''}">Payant</button>
   </div>
   <div class="row no-gutters custom-control custom-checkbox">
-    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-4 col-sm-4 offset-sm-4 col-md-4 offset-md-4 col-lg-3 offset-lg-3" (click)="returnSearchResults()">Recherche</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-4 offset-4 col-sm-4 offset-sm-4 col-md-4 offset-md-4 col-lg-3 offset-lg-5" (click)="returnSearchResults()">Recherche</button>
   </div>
   <!-- <div class="row no-gutters custom-control custom-checkbox">
      <input type="number" name="distance" placeholder="5" class="input-group mt-1 mb-1 col-4 offset-1 col-sm-3">
     <label forName="distance">Distance autour de moi en km</label>
   </div> -->
-</div>
+  <div *ngIf="isLoading" class="loadingContainer">
+    <div class="loading"></div>
+  </div>
+  <div *ngIf="noEvents">
+    <p>Sorry.. aucun événement ne correspond à ta recherche</p>
+  </div>
   <div *ngIf="isgood">
     <div *ngFor="let event of result">
       <div class="row">
@@ -52,3 +57,4 @@
       <hr>
     </div>
   </div>
+</div>

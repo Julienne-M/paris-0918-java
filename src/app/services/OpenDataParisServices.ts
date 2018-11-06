@@ -7,6 +7,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 export class OpenDataParisServices {
 
+  dataFiltered: Array<any> = [];
+
   constructor(private http: HttpClient) { }
 
 
@@ -82,5 +84,15 @@ export class OpenDataParisServices {
   getAllWD() {
     return this.http.get(`${this.urlBaseWithoutDate}`);
   }
+
+  setFilteredArray (data: any) {
+    return this.dataFiltered = data;
+  }
+
+  getEventById (id: number) {
+    const data = this.dataFiltered[id];
+    return data;
+  }
+
 }
 

@@ -5,13 +5,14 @@
 
 .btn {
   text-align: center;
-}
-
-button {
   color: white;
   border: 1px grey solid;
   text-shadow: 2px 2px 5px black, 0 0 25px darkred, 0 0 5px black;
   margin-top: 15px;
   /* background-color: black;
   opacity: 0.8; */
+}
+
+.container-fluid {
+  font-family: 'Courier New', Courier, monospace;
 }

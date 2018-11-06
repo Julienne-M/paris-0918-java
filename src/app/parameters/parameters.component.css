@@ -1,7 +1,15 @@
 .background-color {
-    background-color: #edf1f3;
+    /* background-color: #edf1f3; */
+    background-image: url("../../assets/images/parameterScreen.jpg");
+    /*background-size: cover;*/
+    color: white;
   }  
 
 .btn {
   text-align: center;
+}
+
+button {
+  color: white;
+  border: 0px;
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid background-color">
   <div class="row justify-content-md-center">
     <h4 class="h4 col-md-5 mt-1">{{ frDate }}</h4>
-    <button class="btn btn-success col-md-5 mt-1">
+    <button class="btn btn-info col-md-5 mt-1">
       <a routerLink="/param">Sélectionne tes préférences</a>
     </button>
   </div>
@@ -12,9 +12,9 @@
           {{ event.fields.date_start }}
           {{ event.fields.timetable }}
         </div>
-        <div class="col-12 col-sm-5 col-md-7"><a [routerLink]="[i]">
-          {{ event.fields.title }}
-        </a></div>
+        <div class="col-12 col-sm-5 col-md-7">
+          <a [routerLink]="[i]">{{ event.fields.title }}</a>
+        </div>
         <div class="col-12 col-sm-4 col-md-3">
           {{event.fields.placename}}
         </div>

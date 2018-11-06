@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Event } from '../event';
 import { OpenDataParisServices } from '../services/OpenDataParisServices';
 
 @Component({
@@ -12,7 +11,7 @@ export class ListEventsComponent implements OnInit {
   isLoaded = false;
   data: any;
   events: [any];
-  eventsSorted: [any];
+  eventsSorted: Array<any>;
   frDate: string;
 
   constructor(private api: OpenDataParisServices) {
@@ -25,12 +24,15 @@ export class ListEventsComponent implements OnInit {
       this.data = response;
       // Flag for the ngIf in the HTML
       this.isLoaded = true;
+      // format timetable field
       this.events = this.data.records.map(eventFormat);
+      // sort events list
       this.eventsSorted = eventSort(this.events);
     });
   }
 }
 
+// display a date in the french format
 const frenchDate = (date = new Date()) => {
   const weekDay = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
   const month   = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
@@ -44,31 +46,34 @@ const frenchDate = (date = new Date()) => {
          + date.getFullYear();
 };
 
+// cast the heure of the event
 const eventFormat = (event: any) => {
  event.fields.timetable = event.fields.timetable.slice(11, 16);
  return event;
 };
 
-const eventSort = (events: [any]) => {
-  const eventsOut: any = [];
-  const alreadySort = [];
-  let tempHeure = '';
-  let indice = 0;
-  console.log( `nombre d'événements ${events.length}`);
+// sort the list of events by started hour
+const eventSort = (eventsIn: [any]) => {
 
-  for (let i = 0; i < events.length; i++) {
-    tempHeure = events[i].fields.timetable;
-    for (let j = 0; j < events.length; j++) {
-      if ( !alreadySort.includes(j) && events[j].fields.timetable < tempHeure ) {
-        tempHeure = events[j].fields.timetable;
-        indice = j;
+  const eventsOut: Array<any> = [];      // sorted array
+  const alreadySort: Array<number> = []; // array of index of event already sorted
+  let tempHour: string;
+  let index: number;
+
+  while (eventsOut.length !== eventsIn.length) {
+    index = 0;
+    tempHour = '24:00';
+    // boucle sur la liste pour voir si un événement ne commence pas plus tôt
+    for (let j = 0; j < eventsIn.length; j++) {
+      if (!alreadySort.includes(j) && eventsIn[j].fields.timetable <= tempHour) {
+        tempHour = eventsIn[j].fields.timetable;
+        index = j;
       } // endif
     } // endfor
-    eventsOut.push(events[indice]);
-    alreadySort.push(indice);
-  } // endfor
-  for ( let i = 0; i < eventsOut.length; i++ ) {
-    console.log(eventsOut[i].fields.timetable);
-  }
+    // fill the new array with de next time event
+    eventsOut.push(eventsIn[index]);
+    alreadySort.push(index);
+  } // end while
+
   return eventsOut;
 };

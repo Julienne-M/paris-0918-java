@@ -1,8 +1,9 @@
-<div class="background-img col-12"> 
+<div class="background-img col-12" id="bg">
+<div class="background-img col-12" id="bg-img"> 
     <div class="row">
       <div class="container-fluid" id="title">
             <h2>{{ event.fields.title }}<br/></h2>
-            <h5>{{ event.fields.description }}</h5> 
+            <p>{{ event.fields.description }}</p> 
       </div>
     </div>
 </div>
@@ -13,14 +14,15 @@
             <!-- <h2> Qu'est-ce que c'est?</h2>
                 <p>{{ event.fields.description }}</p> -->
             <h2><i class="fa fa-map-marker"></i> Où ça se passe?</h2>
-                <p>{{ event.fields.placename }}<br/>{{ event.fields.address }}</p>
+                <p>{{ event.fields.placename }}<br/>
+                    {{ event.fields.address }}</p>
                 <br/>
             <h2><i class="fa fa-calendar-o"></i> Quand?</h2>
                 <p>{{ event.fields.space_time_info }}
                 </p><br/>
             <h2><i class="fa fa-credit-card"></i> Combien ça coûte?</h2>
                 <p>{{ event.fields.pricing_info }}</p><br/>
-            <h2><i class="fa fa-info-circle"></i><a href="{{ event.fields.link }}" target="_blank"> Plus de détails en suivant ce lien</a></h2>
+            <h2 class="link"><i class="fa fa-info-circle"></i><a href="{{ event.fields.link }}" target="_blank"> Plus de détails en cliquant ici</a></h2>
                 <br/>
         </div>
         <div class="map col-sm-12 col-md-6">
@@ -31,4 +33,5 @@
             <br/>
         </div>
     </div>
+</div>
 </div>

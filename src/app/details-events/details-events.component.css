@@ -1,34 +1,61 @@
 #title {
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 20px;
     /* justify-content: center; */
     text-align: center;
     /* width: 100%; */
     color: black;
+    /* text-shadow: 2px 2px 5px black, 0 0 25px darkred, 0 0 5px black; */
     /* overflow: hidden; */
-    border-radius: 0px;
-    opacity: 0.7;
-    background-color: #E6E6FA;
+    border-radius: 20px;
+    /* opacity: 0.7;
+    background-color: beige; */
     /* height: 100%; */
 }
 
-.background-img {
-    background-image: url(/src/assets/images/boireuncoup.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-top: 20px;
+#bg {
+    background-image: url(/src/assets/images/concert-2.jpg);
+    background-color: #cccccc;
+    background-size: cover;
+    position: sticky; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+    max-width: fit-content;
+    max-height: fit-content;
+}
+
+#bg-img {
+    /* background-image: url(/src/assets/images/colors.jpg); */
+    background-color: white;
+    opacity: 0.8;
+    /* background-repeat: no-repeat;
+    background-position: center; */
+    margin-top: 0px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: black;
+    /* border-bottom-color: darkred; */
     /* justify-content: center; */
     width: 100%;
     height: max-content;
 }
 
 #details {
+    box-sizing: border-box;
     justify-content: center;
     text-align: center;
+    /* overflow: hidden; */
+    color: black;
+    margin-top: 20px;
+    border-radius: 20px;
+    /* opacity: 0.7;
+    background-color: #E6E6FA; */
 }
 
 .right {
-    background-color: #edf1f3;
+    /* background-color: #edf1f3; */
     justify-content: center;
     text-align: center;
     float: left;
@@ -38,6 +65,8 @@
     /* margin-right: 50%; */
     margin-top: 20px;
     /* overflow: hidden; */
+    color: white;
+    text-shadow: 2px 2px 5px black, 0 0 25px darkred, 0 0 5px black;
 }
 
 .map {
@@ -57,6 +86,31 @@ h2 {
     font-weight: 500;
 }
 
-p, h5 {
+p {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+}
+
+a {
+    color: white;
+    text-decoration: none; 
+    /* border-radius: 20px;
+    opacity: 0.7;
+    background-color: #E6E6FA; */
+  }
+
+.link {
+    /* background-image: url(/src/assets/images/colors.jpg);
+    background-repeat: no-repeat;
+    background-position: center; */
+    /* background-color: white; */
+    margin-top: 20px;
+    /* border-radius: 20px;
+    border-style: solid;
+    border-color: black; */
+    color: white;
+    text-shadow: 2px 2px 5px black, 0 0 25px darkred, 0 0 5px black;
+    /* justify-content: center; */
+    width: 100%;
+    height: max-content;
 }

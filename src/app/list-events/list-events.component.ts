@@ -28,6 +28,7 @@ export class ListEventsComponent implements OnInit {
       this.events = this.data.records.map(eventFormat);
       // sort events list
       this.eventsSorted = eventSort(this.events);
+      this.api.setFilteredArray(this.eventsSorted);
     });
   }
 }

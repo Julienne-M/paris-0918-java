@@ -1,30 +1,46 @@
 <div class="container-fluid background-color">
-  <div class="row input-group mt-1 mb-1 col-12 col-sm-6 col-md-4">
+  <!-- <div class="row input-group mt-1 mb-1 col-12 col-sm-6 col-md-4">
     <h1 class="form-control">Paramètres</h1>
     <div class="input-group-append">
       <button class="btn btn-outline-sucess" type="button">
         <a routerLink="/events">Go !</a>
       </button>
     </div>
+  </div> -->
+  <div class="row no-gutters custom-control custom-checkbox">
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2" (click)="changeConcertsFlag()" [ngStyle]="{border: concertType ? '3px solid white' : ''}">Concerts</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2 offset-lg-1" (click)="changeExpositionsFlag()" [ngStyle]="{border: expositionType ? '3px solid white' : ''}">Expositions</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2 offset-lg-1" (click)="changeTheatersFlag()" [ngStyle]="{border: theaterType ? '3px solid white' : ''}">Théâtres</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2 offset-lg-1" (click)="changeClubbingsFlag()" [ngStyle]="{border: clubbingType ? '3px solid white' : ''}">Clubbing</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2" (click)="changeShowsFlag()" [ngStyle]="{border: showType ? '3px solid white' : ''}">Spectacles</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2 offset-lg-1" (click)="changeCinemasFlag()" [ngStyle]="{border: cinemaType ? '3px solid white' : ''}">Cinémas</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2 offset-lg-1" (click)="changeConferencesFlag()" [ngStyle]="{border: conferenceType ? '3px solid white' : ''}">Conférences</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2 offset-lg-1" (click)="changeOthersFlag()" [ngStyle]="{border: otherType ? '3px solid white' : ''}">Autres</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2" (click)="changeGratuitsFlag()" [ngStyle]="{border: gratuitType ? '3px solid white' : ''}">Gratuit</button>
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2 offset-lg-1" (click)="changePayantsFlag()" [ngStyle]="{border: payantType ? '3px solid white' : ''}">Payant</button>
+    <input type="texte" (change)="handleDateChange()" id="userInput" name="eventDate" placeholder="YYYY-MM-DD" class="input-group mb-1 col-5 col-sm-2 col-md-4 col-lg-1 offset-lg-1" [ngStyle]="{border: dateFormIsValid ? '3px solid blue' : ''}">
   </div>
-  <div class="row justify-content-around no-gutters custom-control custom-checkbox">
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Concert</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Exposition</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Théatre</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Clubbing</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Spectacle</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Cinéma</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Conférence</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Gratuit</button>
-    <button type="checkbox" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-3">Autres</button>
+  <div class="row no-gutters custom-control custom-checkbox ">
+    <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-2 col-md-4 col-lg-2 offset-lg-5" (click)="returnSearchResults()">Recherche</button>
   </div>
-  <div class="row">
-    <div>
-      <input type="date" name="eventDate" class="input-group mt-1 mb-3 col-10 offset-1">
-    </div>
-    <div>
-      <input type="number" name="distance" placeholder="5" class="input-group mt-1 mb-1 col-4 offset-1 col-sm-3">
-      <label forName="distance">Distance autour de moi en km</label>
+  <div class="row no-gutters custom-control custom-checkbox">
+    <!-- <input type="number" name="distance" placeholder="5" class="input-group mt-1 mb-1 col-4 offset-1 col-sm-3">
+    <label forName="distance">Distance autour de moi en km</label> -->
+  </div>
+  <div *ngIf="isgood">
+    <div *ngFor="let event of result">
+      <div class="row">
+        <div class="col-12 col-sm-3 col-md-2">
+          {{ event.fields.date_start }}
+        </div>
+        <div class="col-12 col-sm-5 col-md-7"><a [routerLink]="[i]">
+          {{ event.fields.title }}
+        </a></div>
+        <div class="col-12 col-sm-4 col-md-3">
+          {{event.fields.placename}}
+        </div>
+      </div>
+      <hr>
     </div>
   </div>
 </div>

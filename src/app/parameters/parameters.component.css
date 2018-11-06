@@ -1,7 +1,15 @@
 .background-color {
-    background-color: #edf1f3;
+    /* background-color: #edf1f3; */
+    /* background-image: url("https://images.pexels.com/photos/1146134/pexels-photo-1146134.jpeg?auto=compress&cs=tinysrgb&h=650&w=940");
+    background-size: cover; */
+    color: white;
   }  
 
 .btn {
   text-align: center;
+}
+
+button {
+  color: white;
+  border: 0px;
 }

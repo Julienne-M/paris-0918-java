@@ -20,15 +20,16 @@ export class ParametersComponent implements OnInit {
   payantType = false;
   eventType: any;
   eventTypePricing: any;
-  isReady = false;
   regexGratuit = /gratuit|Gratuit|libre/;
   regexPayant = /€|euros|Euros/;
-  inputDate = '2011-12-17';
+  inputDate: string;
+  result: any;
+  isgood = false;
+  dateFormIsValid = false;
 
   constructor(private openDataParisService: OpenDataParisServices) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   changeConcertsFlag() {
     this.concertType = !this.concertType;
@@ -128,51 +129,90 @@ export class ParametersComponent implements OnInit {
     this.gratuitType = false;
   }
 
+  handleDateChange() {
+    const userInputElement = <HTMLInputElement>document.getElementById('userInput');
+    this.inputDate = userInputElement.value; //userInputElement.innerText || userInputElement.textContent;
+    if (this.inputDate.length === 10) {
+    this.dateFormIsValid = true;
+    } else {
+      this.dateFormIsValid = false;
+      this.inputDate = null;
+    }
+  }
+
   returnSearchResults() {
     if (this.concertType) {
-      this.eventType = this.openDataParisService.getConcerts();
-
+      this.openDataParisService.getConcertsWD().subscribe((response) => {
+        this.eventType = response;
+        this.result = this.secondFilter(this.eventType);
+        this.isgood = true;
+        });
     } else if (this.expositionType) {
-      this.eventType = this.openDataParisService.getExpositions();
+      this.eventType = this.openDataParisService.getExpositionsWD().subscribe((response) => {
+        this.eventType = response;
+        this.result = this.secondFilter(this.eventType);
+        this.isgood = true;
+      });
+    } else if (this.theaterType) {
+      this.eventType = this.openDataParisService.getTheatersWD().subscribe((response) => {
+        this.eventType = response;
+        this.result = this.secondFilter(this.eventType);
+        this.isgood = true;
+      });
+    } else if (this.clubbingType) {
+      this.eventType = this.openDataParisService.getClubbingsWD().subscribe((response) => {
+        this.eventType = response;
+        this.result = this.secondFilter(this.eventType);
+        this.isgood = true;
+      });
+    } else if (this.showType) {
+      this.eventType = this.openDataParisService.getShowsWD().subscribe((response) => {
+        this.eventType = response;
+        this.result = this.secondFilter(this.eventType);
+        this.isgood = true;
+      });
+    } else if (this.cinemaType) {
+      this.eventType = this.openDataParisService.getCinemasWD().subscribe((response) => {
+        this.eventType = response;
+        this.result = this.secondFilter(this.eventType);
+        this.isgood = true;
+      });
+    } else if (this.conferenceType) {
+      this.eventType = this.openDataParisService.getConferencesWD().subscribe((response) => {
+        this.eventType = response;
+        this.result = this.secondFilter(this.eventType);
+        this.isgood = true;
+      });
+    } else {
+      this.openDataParisService.getAllWD().subscribe((response) => {
+        this.eventType = response;
+        this.result = this.secondFilter(this.eventType);
+        this.isgood = true;
+      });
     }
-    else if (this.theaterType) {
-      this.eventType = this.openDataParisService.getTheaters();
-    }
-    else if (this.clubbingType) {
-      this.eventType = this.openDataParisService.getClubbings();
-    }
-    else if (this.showType) {
-      this.eventType = this.openDataParisService.getShows();
-    }
-    else if (this.cinemaType) {
-      this.eventType = this.openDataParisService.getCinemas();
-    }
-    else if (this.conferenceType) {
-      this.eventType = this.openDataParisService.getConferences();
-    }
-    else if (this.otherType) {
-      this.eventType = this.openDataParisService.getAll();
-    }
+  }
+  secondFilter = (eventType) => {
     if (this.inputDate != null) {
       if (this.gratuitType) {
-        this.eventTypePricing = this.eventType.records.filter(event => this.regexGratuit.test(event.fields.pricing_info) &&
+        this.eventTypePricing = eventType.records.filter(event => this.regexGratuit.test(event.fields.pricing_info) &&
         event.fields.date_start === this.inputDate );
-        this.isReady = true;
       } else if (this.payantType) {
-        this.eventTypePricing = this.eventType.records.filter(event => this.regexPayant.test(event.fields.pricing_info) &&
+        this.eventTypePricing = eventType.records.filter(event => this.regexPayant.test(event.fields.pricing_info) &&
         event.fields.date_start === this.inputDate );
-        this.isReady = true;
+      } else {
+        this.eventTypePricing = eventType.records.filter(event => event.fields.date_start === this.inputDate );
       }
     } else {
       if (this.gratuitType === true) {
-        this.eventTypePricing = this.eventType.records.filter(event => this.regexGratuit.test(event.fields.pricing_info) &&
+        this.eventTypePricing = eventType.records.filter(event => this.regexGratuit.test(event.fields.pricing_info) &&
         event.fields.date_start === this.openDataParisService.todaysDateAPIForm);
-        this.isReady = true;
       } else if (this.payantType === true) {
-        this.eventTypePricing = this.eventType.records.filter(event => this.regexPayant.test(event.fields.pricing_info) &&
+        this.eventTypePricing = eventType.records.filter(event => this.regexPayant.test(event.fields.pricing_info) &&
         event.fields.date_start === this.openDataParisService.todaysDateAPIForm);
-        this.isReady = true;
+      } else {
+        this.eventTypePricing = eventType.records.filter(event => event.fields.date_start === this.openDataParisService.todaysDateAPIForm);
       }
     }
+    return this.eventTypePricing;
   }
 }

@@ -5,3 +5,7 @@
 .btn {
   text-align: center;
 }
+
+.container-fluid {
+  font-family: 'Courier New', Courier, monospace;
+}

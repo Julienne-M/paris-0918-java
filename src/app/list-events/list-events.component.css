@@ -1,10 +1,12 @@
-h2 {
-  padding-top: 20px;
-  font-size: 35px;
-}
-
-h2, h3 {
+/* h2, h3 {
   text-align: center;
+} */
+
+h2 {
+  /*padding-top: 20px; */
+  font-size: 28px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 500;
 }
 
 .background-color {
@@ -14,4 +16,12 @@ h2, h3 {
 a {
   color : black;
   text-decoration: none;
+}
+
+.btn {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.row {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

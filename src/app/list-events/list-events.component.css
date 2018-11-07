@@ -32,9 +32,21 @@ a {
 
 .btn {
   font-family: 'Courier New', Courier, monospace;
+  border: 1px white solid;
 }
 
 .row {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin-bottom: 20px;
+}
+
+#list {
+  background-color: black;
+  opacity: 0.75;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.eventTitle {
+  font-size: 1.5em;
 }

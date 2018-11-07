@@ -16,7 +16,7 @@ export class OpenDataParisServices {
   todaysDateAPIForm = this.todaysDate.slice(0, 10);
   currentYearAPIForm = this.todaysDateAPIForm.slice(0, 4);
 
-  urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&refine.date_start=${this.todaysDateAPIForm}`;
+  urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&rows=10000&refine.date_start=${this.todaysDateAPIForm}`;
   // tslint:disable-next-line:max-line-length
   urlBaseWithoutDate = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&rows=10000&refine.date_start=${this.currentYearAPIForm}`;
 

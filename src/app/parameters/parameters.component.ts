@@ -143,6 +143,8 @@ export class ParametersComponent implements OnInit {
   }
 
   returnSearchResults() {
+    this.isgood = false;
+    this.noEvents = false;
     this.isLoading = true;
     if (this.concertType) {
       this.openDataParisService.getConcertsWD().subscribe((response) => {
@@ -150,6 +152,7 @@ export class ParametersComponent implements OnInit {
         this.result = this.secondFilter(this.eventType);
         this.isLoading = false;
         this.isgood = true;
+        this.isThereNoEvents(this.isgood, this.result);
         });
     } else if (this.expositionType) {
       this.eventType = this.openDataParisService.getExpositionsWD().subscribe((response) => {
@@ -157,6 +160,7 @@ export class ParametersComponent implements OnInit {
         this.result = this.secondFilter(this.eventType);
         this.isLoading = false;
         this.isgood = true;
+        this.isThereNoEvents(this.isgood, this.result);
       });
     } else if (this.theaterType) {
       this.eventType = this.openDataParisService.getTheatersWD().subscribe((response) => {
@@ -164,6 +168,7 @@ export class ParametersComponent implements OnInit {
         this.result = this.secondFilter(this.eventType);
         this.isLoading = false;
         this.isgood = true;
+        this.isThereNoEvents(this.isgood, this.result);
       });
     } else if (this.clubbingType) {
       this.eventType = this.openDataParisService.getClubbingsWD().subscribe((response) => {
@@ -172,7 +177,6 @@ export class ParametersComponent implements OnInit {
         this.isLoading = false;
         this.isgood = true;
         this.isThereNoEvents(this.isgood, this.result);
-
       });
     } else if (this.showType) {
       this.eventType = this.openDataParisService.getShowsWD().subscribe((response) => {
@@ -180,6 +184,7 @@ export class ParametersComponent implements OnInit {
         this.result = this.secondFilter(this.eventType);
         this.isLoading = false;
         this.isgood = true;
+        this.isThereNoEvents(this.isgood, this.result);
       });
     } else if (this.cinemaType) {
       this.eventType = this.openDataParisService.getCinemasWD().subscribe((response) => {
@@ -187,6 +192,7 @@ export class ParametersComponent implements OnInit {
         this.result = this.secondFilter(this.eventType);
         this.isLoading = false;
         this.isgood = true;
+        this.isThereNoEvents(this.isgood, this.result);
       });
     } else if (this.conferenceType) {
       this.eventType = this.openDataParisService.getConferencesWD().subscribe((response) => {
@@ -194,6 +200,7 @@ export class ParametersComponent implements OnInit {
         this.result = this.secondFilter(this.eventType);
         this.isLoading = false;
         this.isgood = true;
+        this.isThereNoEvents(this.isgood, this.result);
       });
     } else {
       this.openDataParisService.getAllWD().subscribe((response) => {
@@ -201,6 +208,7 @@ export class ParametersComponent implements OnInit {
         this.result = this.secondFilter(this.eventType);
         this.isLoading = false;
         this.isgood = true;
+        this.isThereNoEvents(this.isgood, this.result);
       });
     }
   }
@@ -229,11 +237,9 @@ export class ParametersComponent implements OnInit {
     return this.eventTypePricing;
   }
   isThereNoEvents = (isgood, result) => {
-    console.log('entré dans isThereNoEvent');
-    if (isgood ===  true && result === undefined) {
+    if (isgood ===  true && result.length === 0) {
       isgood = false;
       this.noEvents = true;
-      console.log('pas devents dsl');
     }
   }
 }

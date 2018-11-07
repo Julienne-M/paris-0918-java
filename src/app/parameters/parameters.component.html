@@ -35,15 +35,17 @@
      <input type="number" name="distance" placeholder="5" class="input-group mt-1 mb-1 col-4 offset-1 col-sm-3">
     <label forName="distance">Distance autour de moi en km</label>
   </div> -->
-  <div *ngIf="isLoading" class="loadingContainer">
+  <div class="row no-gutters custom-control custom-checkbox">
+  <div *ngIf="isLoading" class="col-lg-2 offset-lg-6 isLoadingIcon">
     <div class="loading"></div>
   </div>
-  <div *ngIf="noEvents">
+  <div *ngIf="noEvents" class="col-lg-9 offset-lg-2 noEventsMessage">
     <p>Sorry.. aucun événement ne correspond à ta recherche</p>
+  </div>
   </div>
   <div *ngIf="isgood">
     <div *ngFor="let event of result">
-      <div class="row">
+      <div class="row resultDispaly">
         <div class="col-12 col-sm-3 col-md-2">
           {{ event.fields.date_start }}
         </div>

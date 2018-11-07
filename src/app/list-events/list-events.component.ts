@@ -53,7 +53,6 @@ const frenchDate = (date = new Date()) => {
 // cast the hour of the event
 const eventFormat = (event: any) => {
  event.fields.timetable = event.fields.timetable.slice(11, 16);
- console.log(event.fields.date_end);
  return event;
 };
 

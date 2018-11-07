@@ -25,9 +25,7 @@ export class MapComponent implements OnInit {
     this.event = this.api.getEventById(id);
     // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
     this.position = this.gps.position;
-    console.log(' dans map.ts ', this.position);
-    const map = L.map('map').setView([this.position.coords.latitude, this.position.coords.longitude], 12);
-//    const map = L.map('map').setView([48.850564, 2.350188], 12);
+    const map = L.map('map').setView([this.position.coords.latitude, this.position.coords.longitude], 11);
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: 'Carte de Paris'
@@ -41,7 +39,6 @@ export class MapComponent implements OnInit {
     }
 
     const eventLocation = () => {
-      console.log(this.event.fields.latlon);
       const myIcon = L.icon({
         iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
       });
@@ -54,7 +51,7 @@ export class MapComponent implements OnInit {
     }
 
   map.on('locationerror', onLocationError);
-  map.locate({setView: true, maxZoom: 16});
+  map.locate({setView: true, maxZoom: 11});
 
     map.on('locationfound', onLocationFound);
     map.on('locationfound', eventLocation);

@@ -33,14 +33,14 @@ export class MapComponent implements OnInit {
 
     function onLocationFound(e: any) {
       const myIcon = L.icon({
-        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
+        iconUrl: '../assets/images/marker-icon-red.png'
       });
       L.marker([e.latitude, e.longitude], { icon: myIcon }).bindPopup('Vous êtes ici').addTo(map).openPopup();
     }
 
     const eventLocation = () => {
       const myIcon = L.icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png'
+        iconUrl: '../assets/images/marker-icon-black.png'
       });
       L.marker(this.event.fields.latlon,
         {icon: myIcon}).bindPopup('Votre événement').addTo(map).openPopup();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OpenDataParisServices } from '../services/OpenDataParisServices';
+import { MapServices } from '../services/map.services';
 
 @Component({
   selector: 'app-list-events',
@@ -14,12 +15,14 @@ export class ListEventsComponent implements OnInit {
   eventsSorted: Array<any>;
   frDate: string;
 
-  constructor(private api: OpenDataParisServices) {
+  constructor(private api: OpenDataParisServices, private gps: MapServices) {
   }
 
   ngOnInit() {
+    this.gps.findme();
     // formatage de la date
     this.frDate = frenchDate();
+    // api OpenDataParis call
     this.api.getAll().subscribe((response) => {
       this.data = response;
       // Flag for the ngIf in the HTML
@@ -47,9 +50,10 @@ const frenchDate = (date = new Date()) => {
          + date.getFullYear();
 };
 
-// cast the heure of the event
+// cast the hour of the event
 const eventFormat = (event: any) => {
  event.fields.timetable = event.fields.timetable.slice(11, 16);
+ console.log(event.fields.date_end);
  return event;
 };
 

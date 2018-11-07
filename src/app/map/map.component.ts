@@ -24,7 +24,7 @@ export class MapComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
     this.event = this.api.getEventById(id);
     // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
-    this.position = this.gps.findme();
+    this.position = this.gps.position;
     console.log(' dans map.ts ', this.position);
     const map = L.map('map').setView([this.position.coords.latitude, this.position.coords.longitude], 12);
 //    const map = L.map('map').setView([48.850564, 2.350188], 12);

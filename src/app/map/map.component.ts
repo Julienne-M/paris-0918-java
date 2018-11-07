@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { OpenDataParisServices } from '../services/OpenDataParisServices';
+import { MapServices } from '../services/map.services';
 import * as L from 'leaflet';
 
 @Component({
@@ -7,53 +10,52 @@ import * as L from 'leaflet';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-
   map: any;
+  event: any;
+  position: Position;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private api: OpenDataParisServices,
+              private gps: MapServices) {
+    }
 
   ngOnInit() {
+    // recuperation of selected element
+    const id = this.route.snapshot.params['id'];
+    this.event = this.api.getEventById(id);
     // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
-  const map = L.map('map').setView([48.855, 2.347], 7);
+    this.position = this.gps.position;
+    const map = L.map('map').setView([this.position.coords.latitude, this.position.coords.longitude], 11);
 
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: 'Carte de Paris'
-  }).addTo(map);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: 'Carte de Paris'
+    }).addTo(map);
 
-  map.locate({setView: true, maxZoom: 16});
+    function onLocationFound(e: any) {
+      const myIcon = L.icon({
+        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
+      });
+      L.marker([e.latitude, e.longitude], { icon: myIcon }).bindPopup('Vous êtes ici').addTo(map).openPopup();
+    }
 
-//   function onLocationFound(e) {
-//     const radius = e.accuracy / 2;
+    const eventLocation = () => {
+      const myIcon = L.icon({
+        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
+      });
+      L.marker(this.event.fields.latlon,
+        {icon: myIcon}).bindPopup('Votre événement').addTo(map).openPopup();
+    };
 
-//     L.marker(e.latlng).addTo(map)
-//         .bindPopup('You are within ' + radius + ' meters from this point').openPopup();
+    function onLocationError(e) {
+      alert(e.message);
+    }
 
-//     L.circle(e.latlng, radius).addTo(map);
-// }
+  map.on('locationerror', onLocationError);
+  map.locate({setView: true, maxZoom: 11});
 
-map.on('locationfound', onLocationFound);
-
-function onLocationFound(e) {
-  const myIcon = L.icon({
-    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
-  });
-  L.marker([e.latitude, e.longitude], {icon: myIcon}).bindPopup('Vous êtes ici').addTo(map).openPopup();
-
-}
-
-function onLocationError(e) {
-  alert(e.message);
-}
-map.on('locationerror', onLocationError);
-
-// map.on('locationfound', onLocationFound);
-
-  // const myIcon = L.icon({
-  //   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
-  // });
-  // L.marker([48.850564, 2.350188], {icon: myIcon}).bindPopup('Vous êtes ici').addTo(map).openPopup();
-  // }
-
+    map.on('locationfound', onLocationFound);
+    map.on('locationfound', eventLocation);
 
   }
+
 }

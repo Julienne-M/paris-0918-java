@@ -48,8 +48,12 @@ input {
 	100% { transform: rotate(360deg); }
 }
 
-.noEventsMessage {
+#list {
+  background-color: black;
+  opacity: 0.75;
+  border-radius: 20px;
+  padding: 5px;
+  color : white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   text-shadow: 2px 2px 5px black, 0 0 25px darkred, 0 0 5px black;
-  margin-top: 40px;
-  text-align: center;
 }

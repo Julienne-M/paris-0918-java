@@ -4,12 +4,12 @@
     /* justify-content: center; */
     text-align: center;
     /* width: 100%; */
-    color: black;
+    color: white;
     /* text-shadow: 2px 2px 5px black, 0 0 25px darkred, 0 0 5px black; */
     /* overflow: hidden; */
     border-radius: 20px;
-    /* opacity: 0.7;
-    background-color: beige; */
+    opacity: 1;
+    /* background-color: beige; */
     /* height: 100%; */
 }
 
@@ -28,14 +28,12 @@
 
 #bg-img {
     /* background-image: url(/src/assets/images/colors.jpg); */
-    background-color: white;
-    opacity: 0.8;
+    background-color: black;
+    opacity: 0.75;
     /* background-repeat: no-repeat;
     background-position: center; */
     margin-top: 0px;
     border-radius: 20px;
-    border-style: solid;
-    border-color: black;
     /* border-bottom-color: darkred; */
     /* justify-content: center; */
     width: 100%;
